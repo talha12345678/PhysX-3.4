@@ -43,7 +43,7 @@ endif
 
 
 ifeq ($(HOST_OS),cygwin)
-  TOOLCHAIN_DIR      = $(NDKROOT)/toolchains/$(GCC_ARCH)-$(GCC_VERS)/prebuilt/windows
+  TOOLCHAIN_DIR      = $(NDKROOT)/toolchains/$(GCC_ARCH)-$(GCC_VERS)/prebuilt/windows-x86_64
 else
   ifneq (,$(findstring msys,$(HOST_OS)))
     TOOLCHAIN_DIR      = $(NDKROOT)/toolchains/$(GCC_ARCH)-$(GCC_VERS)/prebuilt/windows
