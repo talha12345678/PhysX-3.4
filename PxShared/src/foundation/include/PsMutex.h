@@ -164,7 +164,8 @@ class PX_FOUNDATION_API ReadWriteLock
 	~ReadWriteLock();
 
 	// "takeLock" can only be false if the thread already holds the mutex, e.g. if it already acquired the write lock
-	void lockReader(bool takeLock=true);
+	void lockReader();
+	void lockReader(bool takeLock);
 	void lockWriter();
 
 	void unlockReader();
