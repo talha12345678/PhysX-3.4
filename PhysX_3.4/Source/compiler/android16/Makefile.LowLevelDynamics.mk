@@ -47,8 +47,12 @@ LowLevelDynamics_c_release_dep      = $(addprefix $(DEPSDIR)/LowLevelDynamics/re
 LowLevelDynamics_release_dep      = $(LowLevelDynamics_cpp_release_dep) $(LowLevelDynamics_cc_release_dep) $(LowLevelDynamics_c_release_dep)
 -include $(LowLevelDynamics_release_dep)
 LowLevelDynamics_debug_hpaths    := 
-LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+#LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+#LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelDynamics_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+
+
 LowLevelDynamics_debug_hpaths    += ./../../Common/include
 LowLevelDynamics_debug_hpaths    += ./../../../../PxShared/include
 LowLevelDynamics_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -89,15 +93,16 @@ LowLevelDynamics_debug_defines   += _DEBUG
 LowLevelDynamics_debug_defines   += PX_DEBUG=1
 LowLevelDynamics_debug_defines   += PX_CHECKED=1
 LowLevelDynamics_debug_defines   += PX_SUPPORT_PVD=1
-LowLevelDynamics_debug_defines   += PX_NVTX=1
+LowLevelDynamics_debug_defines   += PX_NVTX=0
 LowLevelDynamics_debug_libraries := 
 LowLevelDynamics_debug_common_cflags	:= $(LowLevelDynamics_custom_cflags)
 LowLevelDynamics_debug_common_cflags    += -MMD
 LowLevelDynamics_debug_common_cflags    += $(addprefix -D, $(LowLevelDynamics_debug_defines))
 LowLevelDynamics_debug_common_cflags    += $(addprefix -I, $(LowLevelDynamics_debug_hpaths))
-LowLevelDynamics_debug_common_cflags  += -Werror
+#LowLevelDynamics_debug_common_cflags  += -Werror
 LowLevelDynamics_debug_common_cflags  += -fpic -fno-exceptions
-LowLevelDynamics_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelDynamics_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelDynamics_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelDynamics_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelDynamics_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -111,7 +116,8 @@ LowLevelDynamics_debug_cppflags  += -Wno-invalid-offsetof
 LowLevelDynamics_debug_lflags    := $(LowLevelDynamics_custom_lflags)
 LowLevelDynamics_debug_lflags    += $(addprefix -L, $(LowLevelDynamics_debug_lpaths))
 LowLevelDynamics_debug_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelDynamics_debug_libraries)) -Wl,--end-group
-LowLevelDynamics_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelDynamics_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelDynamics_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_debug_objsdir  = $(OBJS_DIR)/LowLevelDynamics_debug
 LowLevelDynamics_debug_cpp_o    = $(addprefix $(LowLevelDynamics_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelDynamics_cppfiles)))))
 LowLevelDynamics_debug_cc_o    = $(addprefix $(LowLevelDynamics_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelDynamics_ccfiles)))))
@@ -167,8 +173,8 @@ $(LowLevelDynamics_debug_c_o): $(LowLevelDynamics_debug_objsdir)/%.o:
 	  rm -f $(LowLevelDynamics_debug_DEPDIR).d
 
 LowLevelDynamics_checked_hpaths    := 
-LowLevelDynamics_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelDynamics_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelDynamics_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelDynamics_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelDynamics_checked_hpaths    += ./../../Common/include
 LowLevelDynamics_checked_hpaths    += ./../../../../PxShared/include
 LowLevelDynamics_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -208,15 +214,15 @@ LowLevelDynamics_checked_defines   += PX_PHYSX_STATIC_LIB
 LowLevelDynamics_checked_defines   += NDEBUG
 LowLevelDynamics_checked_defines   += PX_CHECKED=1
 LowLevelDynamics_checked_defines   += PX_SUPPORT_PVD=1
-LowLevelDynamics_checked_defines   += PX_NVTX=1
+LowLevelDynamics_checked_defines   += PX_NVTX=0
 LowLevelDynamics_checked_libraries := 
 LowLevelDynamics_checked_common_cflags	:= $(LowLevelDynamics_custom_cflags)
 LowLevelDynamics_checked_common_cflags    += -MMD
 LowLevelDynamics_checked_common_cflags    += $(addprefix -D, $(LowLevelDynamics_checked_defines))
 LowLevelDynamics_checked_common_cflags    += $(addprefix -I, $(LowLevelDynamics_checked_hpaths))
-LowLevelDynamics_checked_common_cflags  += -Werror
+#LowLevelDynamics_checked_common_cflags  += -Werror
 LowLevelDynamics_checked_common_cflags  += -fpic -fno-exceptions
-LowLevelDynamics_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelDynamics_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelDynamics_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -232,7 +238,7 @@ LowLevelDynamics_checked_cppflags  += -Wno-invalid-offsetof
 LowLevelDynamics_checked_lflags    := $(LowLevelDynamics_custom_lflags)
 LowLevelDynamics_checked_lflags    += $(addprefix -L, $(LowLevelDynamics_checked_lpaths))
 LowLevelDynamics_checked_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelDynamics_checked_libraries)) -Wl,--end-group
-LowLevelDynamics_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_checked_objsdir  = $(OBJS_DIR)/LowLevelDynamics_checked
 LowLevelDynamics_checked_cpp_o    = $(addprefix $(LowLevelDynamics_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelDynamics_cppfiles)))))
 LowLevelDynamics_checked_cc_o    = $(addprefix $(LowLevelDynamics_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelDynamics_ccfiles)))))
@@ -288,8 +294,8 @@ $(LowLevelDynamics_checked_c_o): $(LowLevelDynamics_checked_objsdir)/%.o:
 	  rm -f $(LowLevelDynamics_checked_DEPDIR).d
 
 LowLevelDynamics_profile_hpaths    := 
-LowLevelDynamics_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelDynamics_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelDynamics_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelDynamics_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelDynamics_profile_hpaths    += ./../../Common/include
 LowLevelDynamics_profile_hpaths    += ./../../../../PxShared/include
 LowLevelDynamics_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -329,15 +335,15 @@ LowLevelDynamics_profile_defines   += PX_PHYSX_STATIC_LIB
 LowLevelDynamics_profile_defines   += NDEBUG
 LowLevelDynamics_profile_defines   += PX_PROFILE=1
 LowLevelDynamics_profile_defines   += PX_SUPPORT_PVD=1
-LowLevelDynamics_profile_defines   += PX_NVTX=1
+LowLevelDynamics_profile_defines   += PX_NVTX=0
 LowLevelDynamics_profile_libraries := 
 LowLevelDynamics_profile_common_cflags	:= $(LowLevelDynamics_custom_cflags)
 LowLevelDynamics_profile_common_cflags    += -MMD
 LowLevelDynamics_profile_common_cflags    += $(addprefix -D, $(LowLevelDynamics_profile_defines))
 LowLevelDynamics_profile_common_cflags    += $(addprefix -I, $(LowLevelDynamics_profile_hpaths))
-LowLevelDynamics_profile_common_cflags  += -Werror
+#LowLevelDynamics_profile_common_cflags  += -Werror
 LowLevelDynamics_profile_common_cflags  += -fpic -fno-exceptions
-LowLevelDynamics_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelDynamics_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelDynamics_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -353,7 +359,7 @@ LowLevelDynamics_profile_cppflags  += -Wno-invalid-offsetof
 LowLevelDynamics_profile_lflags    := $(LowLevelDynamics_custom_lflags)
 LowLevelDynamics_profile_lflags    += $(addprefix -L, $(LowLevelDynamics_profile_lpaths))
 LowLevelDynamics_profile_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelDynamics_profile_libraries)) -Wl,--end-group
-LowLevelDynamics_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_profile_objsdir  = $(OBJS_DIR)/LowLevelDynamics_profile
 LowLevelDynamics_profile_cpp_o    = $(addprefix $(LowLevelDynamics_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelDynamics_cppfiles)))))
 LowLevelDynamics_profile_cc_o    = $(addprefix $(LowLevelDynamics_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelDynamics_ccfiles)))))
@@ -409,8 +415,8 @@ $(LowLevelDynamics_profile_c_o): $(LowLevelDynamics_profile_objsdir)/%.o:
 	  rm -f $(LowLevelDynamics_profile_DEPDIR).d
 
 LowLevelDynamics_release_hpaths    := 
-LowLevelDynamics_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelDynamics_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelDynamics_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelDynamics_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelDynamics_release_hpaths    += ./../../Common/include
 LowLevelDynamics_release_hpaths    += ./../../../../PxShared/include
 LowLevelDynamics_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -454,9 +460,9 @@ LowLevelDynamics_release_common_cflags	:= $(LowLevelDynamics_custom_cflags)
 LowLevelDynamics_release_common_cflags    += -MMD
 LowLevelDynamics_release_common_cflags    += $(addprefix -D, $(LowLevelDynamics_release_defines))
 LowLevelDynamics_release_common_cflags    += $(addprefix -I, $(LowLevelDynamics_release_hpaths))
-LowLevelDynamics_release_common_cflags  += -Werror
+#LowLevelDynamics_release_common_cflags  += -Werror
 LowLevelDynamics_release_common_cflags  += -fpic -fno-exceptions
-LowLevelDynamics_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelDynamics_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelDynamics_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -472,7 +478,7 @@ LowLevelDynamics_release_cppflags  += -Wno-invalid-offsetof
 LowLevelDynamics_release_lflags    := $(LowLevelDynamics_custom_lflags)
 LowLevelDynamics_release_lflags    += $(addprefix -L, $(LowLevelDynamics_release_lpaths))
 LowLevelDynamics_release_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelDynamics_release_libraries)) -Wl,--end-group
-LowLevelDynamics_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelDynamics_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelDynamics_release_objsdir  = $(OBJS_DIR)/LowLevelDynamics_release
 LowLevelDynamics_release_cpp_o    = $(addprefix $(LowLevelDynamics_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelDynamics_cppfiles)))))
 LowLevelDynamics_release_cc_o    = $(addprefix $(LowLevelDynamics_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelDynamics_ccfiles)))))

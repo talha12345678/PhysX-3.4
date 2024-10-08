@@ -65,8 +65,8 @@ PhysX_c_profile_dep      = $(addprefix $(DEPSDIR)/PhysX/profile/, $(subst ./, , 
 PhysX_profile_dep      = $(PhysX_cpp_profile_dep) $(PhysX_cc_profile_dep) $(PhysX_c_profile_dep)
 -include $(PhysX_profile_dep)
 PhysX_release_hpaths    := 
-PhysX_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysX_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysX_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysX_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysX_release_hpaths    += ./../../Common/include
 PhysX_release_hpaths    += ./../../../../PxShared/include
 PhysX_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -145,7 +145,7 @@ PhysX_release_common_cflags    += $(addprefix -D, $(PhysX_release_defines))
 PhysX_release_common_cflags    += $(addprefix -I, $(PhysX_release_hpaths))
 PhysX_release_common_cflags  += -Werror
 PhysX_release_common_cflags  += -fpic -fno-exceptions
-PhysX_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysX_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysX_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -161,7 +161,7 @@ PhysX_release_cppflags  += -Wno-invalid-offsetof
 PhysX_release_lflags    := $(PhysX_custom_lflags)
 PhysX_release_lflags    += $(addprefix -L, $(PhysX_release_lpaths))
 PhysX_release_lflags    += -Wl,--start-group $(addprefix -l, $(PhysX_release_libraries)) -Wl,--end-group
-PhysX_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_release_objsdir  = $(OBJS_DIR)/PhysX_release
 PhysX_release_cpp_o    = $(addprefix $(PhysX_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysX_cppfiles)))))
 PhysX_release_cc_o    = $(addprefix $(PhysX_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysX_ccfiles)))))
@@ -217,8 +217,8 @@ $(PhysX_release_c_o): $(PhysX_release_objsdir)/%.o:
 	  rm -f $(PhysX_release_DEPDIR).d
 
 PhysX_debug_hpaths    := 
-PhysX_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysX_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysX_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysX_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysX_debug_hpaths    += ./../../Common/include
 PhysX_debug_hpaths    += ./../../../../PxShared/include
 PhysX_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -281,7 +281,7 @@ PhysX_debug_defines   += _DEBUG
 PhysX_debug_defines   += PX_DEBUG=1
 PhysX_debug_defines   += PX_CHECKED=1
 PhysX_debug_defines   += PX_SUPPORT_PVD=1
-PhysX_debug_defines   += PX_NVTX=1
+PhysX_debug_defines   += PX_NVTX=0
 PhysX_debug_libraries := 
 PhysX_debug_libraries += PxPvdSDKDEBUG
 PhysX_debug_libraries += PxFoundationDEBUG
@@ -300,7 +300,7 @@ PhysX_debug_common_cflags    += $(addprefix -D, $(PhysX_debug_defines))
 PhysX_debug_common_cflags    += $(addprefix -I, $(PhysX_debug_hpaths))
 PhysX_debug_common_cflags  += -Werror
 PhysX_debug_common_cflags  += -fpic -fno-exceptions
-PhysX_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysX_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysX_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -314,7 +314,7 @@ PhysX_debug_cppflags  += -Wno-invalid-offsetof
 PhysX_debug_lflags    := $(PhysX_custom_lflags)
 PhysX_debug_lflags    += $(addprefix -L, $(PhysX_debug_lpaths))
 PhysX_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PhysX_debug_libraries)) -Wl,--end-group
-PhysX_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_debug_objsdir  = $(OBJS_DIR)/PhysX_debug
 PhysX_debug_cpp_o    = $(addprefix $(PhysX_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysX_cppfiles)))))
 PhysX_debug_cc_o    = $(addprefix $(PhysX_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysX_ccfiles)))))
@@ -370,8 +370,8 @@ $(PhysX_debug_c_o): $(PhysX_debug_objsdir)/%.o:
 	  rm -f $(PhysX_debug_DEPDIR).d
 
 PhysX_checked_hpaths    := 
-PhysX_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysX_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysX_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysX_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysX_checked_hpaths    += ./../../Common/include
 PhysX_checked_hpaths    += ./../../../../PxShared/include
 PhysX_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -433,7 +433,7 @@ PhysX_checked_defines   += PX_PHYSX_STATIC_LIB
 PhysX_checked_defines   += NDEBUG
 PhysX_checked_defines   += PX_CHECKED=1
 PhysX_checked_defines   += PX_SUPPORT_PVD=1
-PhysX_checked_defines   += PX_NVTX=1
+PhysX_checked_defines   += PX_NVTX=0
 PhysX_checked_libraries := 
 PhysX_checked_libraries += PxPvdSDKCHECKED
 PhysX_checked_libraries += PxFoundationCHECKED
@@ -452,7 +452,7 @@ PhysX_checked_common_cflags    += $(addprefix -D, $(PhysX_checked_defines))
 PhysX_checked_common_cflags    += $(addprefix -I, $(PhysX_checked_hpaths))
 PhysX_checked_common_cflags  += -Werror
 PhysX_checked_common_cflags  += -fpic -fno-exceptions
-PhysX_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysX_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysX_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -468,7 +468,7 @@ PhysX_checked_cppflags  += -Wno-invalid-offsetof
 PhysX_checked_lflags    := $(PhysX_custom_lflags)
 PhysX_checked_lflags    += $(addprefix -L, $(PhysX_checked_lpaths))
 PhysX_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PhysX_checked_libraries)) -Wl,--end-group
-PhysX_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_checked_objsdir  = $(OBJS_DIR)/PhysX_checked
 PhysX_checked_cpp_o    = $(addprefix $(PhysX_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysX_cppfiles)))))
 PhysX_checked_cc_o    = $(addprefix $(PhysX_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysX_ccfiles)))))
@@ -524,8 +524,8 @@ $(PhysX_checked_c_o): $(PhysX_checked_objsdir)/%.o:
 	  rm -f $(PhysX_checked_DEPDIR).d
 
 PhysX_profile_hpaths    := 
-PhysX_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysX_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysX_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysX_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysX_profile_hpaths    += ./../../Common/include
 PhysX_profile_hpaths    += ./../../../../PxShared/include
 PhysX_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -587,7 +587,7 @@ PhysX_profile_defines   += PX_PHYSX_STATIC_LIB
 PhysX_profile_defines   += NDEBUG
 PhysX_profile_defines   += PX_PROFILE=1
 PhysX_profile_defines   += PX_SUPPORT_PVD=1
-PhysX_profile_defines   += PX_NVTX=1
+PhysX_profile_defines   += PX_NVTX=0
 PhysX_profile_libraries := 
 PhysX_profile_libraries += PxPvdSDKPROFILE
 PhysX_profile_libraries += PxFoundationPROFILE
@@ -606,7 +606,7 @@ PhysX_profile_common_cflags    += $(addprefix -D, $(PhysX_profile_defines))
 PhysX_profile_common_cflags    += $(addprefix -I, $(PhysX_profile_hpaths))
 PhysX_profile_common_cflags  += -Werror
 PhysX_profile_common_cflags  += -fpic -fno-exceptions
-PhysX_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysX_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysX_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -622,7 +622,7 @@ PhysX_profile_cppflags  += -Wno-invalid-offsetof
 PhysX_profile_lflags    := $(PhysX_custom_lflags)
 PhysX_profile_lflags    += $(addprefix -L, $(PhysX_profile_lpaths))
 PhysX_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PhysX_profile_libraries)) -Wl,--end-group
-PhysX_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysX_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysX_profile_objsdir  = $(OBJS_DIR)/PhysX_profile
 PhysX_profile_cpp_o    = $(addprefix $(PhysX_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysX_cppfiles)))))
 PhysX_profile_cc_o    = $(addprefix $(PhysX_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysX_ccfiles)))))

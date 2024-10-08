@@ -41,8 +41,8 @@ PhysXVehicle_c_release_dep      = $(addprefix $(DEPSDIR)/PhysXVehicle/release/, 
 PhysXVehicle_release_dep      = $(PhysXVehicle_cpp_release_dep) $(PhysXVehicle_cc_release_dep) $(PhysXVehicle_c_release_dep)
 -include $(PhysXVehicle_release_dep)
 PhysXVehicle_debug_hpaths    := 
-PhysXVehicle_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXVehicle_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXVehicle_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXVehicle_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXVehicle_debug_hpaths    += ./../../Common/include
 PhysXVehicle_debug_hpaths    += ./../../../../PxShared/include
 PhysXVehicle_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -77,7 +77,7 @@ PhysXVehicle_debug_defines   += _DEBUG
 PhysXVehicle_debug_defines   += PX_DEBUG=1
 PhysXVehicle_debug_defines   += PX_CHECKED=1
 PhysXVehicle_debug_defines   += PX_SUPPORT_PVD=1
-PhysXVehicle_debug_defines   += PX_NVTX=1
+PhysXVehicle_debug_defines   += PX_NVTX=0
 PhysXVehicle_debug_libraries := 
 PhysXVehicle_debug_common_cflags	:= $(PhysXVehicle_custom_cflags)
 PhysXVehicle_debug_common_cflags    += -MMD
@@ -85,7 +85,7 @@ PhysXVehicle_debug_common_cflags    += $(addprefix -D, $(PhysXVehicle_debug_defi
 PhysXVehicle_debug_common_cflags    += $(addprefix -I, $(PhysXVehicle_debug_hpaths))
 PhysXVehicle_debug_common_cflags  += -Werror
 PhysXVehicle_debug_common_cflags  += -fpic -fno-exceptions
-PhysXVehicle_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXVehicle_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXVehicle_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -99,7 +99,7 @@ PhysXVehicle_debug_cppflags  += -Wno-invalid-offsetof
 PhysXVehicle_debug_lflags    := $(PhysXVehicle_custom_lflags)
 PhysXVehicle_debug_lflags    += $(addprefix -L, $(PhysXVehicle_debug_lpaths))
 PhysXVehicle_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXVehicle_debug_libraries)) -Wl,--end-group
-PhysXVehicle_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_debug_objsdir  = $(OBJS_DIR)/PhysXVehicle_debug
 PhysXVehicle_debug_cpp_o    = $(addprefix $(PhysXVehicle_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXVehicle_cppfiles)))))
 PhysXVehicle_debug_cc_o    = $(addprefix $(PhysXVehicle_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXVehicle_ccfiles)))))
@@ -155,8 +155,8 @@ $(PhysXVehicle_debug_c_o): $(PhysXVehicle_debug_objsdir)/%.o:
 	  rm -f $(PhysXVehicle_debug_DEPDIR).d
 
 PhysXVehicle_checked_hpaths    := 
-PhysXVehicle_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXVehicle_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXVehicle_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXVehicle_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXVehicle_checked_hpaths    += ./../../Common/include
 PhysXVehicle_checked_hpaths    += ./../../../../PxShared/include
 PhysXVehicle_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -190,7 +190,7 @@ PhysXVehicle_checked_defines   += PX_PHYSX_STATIC_LIB
 PhysXVehicle_checked_defines   += NDEBUG
 PhysXVehicle_checked_defines   += PX_CHECKED=1
 PhysXVehicle_checked_defines   += PX_SUPPORT_PVD=1
-PhysXVehicle_checked_defines   += PX_NVTX=1
+PhysXVehicle_checked_defines   += PX_NVTX=0
 PhysXVehicle_checked_libraries := 
 PhysXVehicle_checked_common_cflags	:= $(PhysXVehicle_custom_cflags)
 PhysXVehicle_checked_common_cflags    += -MMD
@@ -198,7 +198,7 @@ PhysXVehicle_checked_common_cflags    += $(addprefix -D, $(PhysXVehicle_checked_
 PhysXVehicle_checked_common_cflags    += $(addprefix -I, $(PhysXVehicle_checked_hpaths))
 PhysXVehicle_checked_common_cflags  += -Werror
 PhysXVehicle_checked_common_cflags  += -fpic -fno-exceptions
-PhysXVehicle_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXVehicle_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXVehicle_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -214,7 +214,7 @@ PhysXVehicle_checked_cppflags  += -Wno-invalid-offsetof
 PhysXVehicle_checked_lflags    := $(PhysXVehicle_custom_lflags)
 PhysXVehicle_checked_lflags    += $(addprefix -L, $(PhysXVehicle_checked_lpaths))
 PhysXVehicle_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXVehicle_checked_libraries)) -Wl,--end-group
-PhysXVehicle_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_checked_objsdir  = $(OBJS_DIR)/PhysXVehicle_checked
 PhysXVehicle_checked_cpp_o    = $(addprefix $(PhysXVehicle_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXVehicle_cppfiles)))))
 PhysXVehicle_checked_cc_o    = $(addprefix $(PhysXVehicle_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXVehicle_ccfiles)))))
@@ -270,8 +270,8 @@ $(PhysXVehicle_checked_c_o): $(PhysXVehicle_checked_objsdir)/%.o:
 	  rm -f $(PhysXVehicle_checked_DEPDIR).d
 
 PhysXVehicle_profile_hpaths    := 
-PhysXVehicle_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXVehicle_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXVehicle_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXVehicle_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXVehicle_profile_hpaths    += ./../../Common/include
 PhysXVehicle_profile_hpaths    += ./../../../../PxShared/include
 PhysXVehicle_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -305,7 +305,7 @@ PhysXVehicle_profile_defines   += PX_PHYSX_STATIC_LIB
 PhysXVehicle_profile_defines   += NDEBUG
 PhysXVehicle_profile_defines   += PX_PROFILE=1
 PhysXVehicle_profile_defines   += PX_SUPPORT_PVD=1
-PhysXVehicle_profile_defines   += PX_NVTX=1
+PhysXVehicle_profile_defines   += PX_NVTX=0
 PhysXVehicle_profile_libraries := 
 PhysXVehicle_profile_common_cflags	:= $(PhysXVehicle_custom_cflags)
 PhysXVehicle_profile_common_cflags    += -MMD
@@ -313,7 +313,7 @@ PhysXVehicle_profile_common_cflags    += $(addprefix -D, $(PhysXVehicle_profile_
 PhysXVehicle_profile_common_cflags    += $(addprefix -I, $(PhysXVehicle_profile_hpaths))
 PhysXVehicle_profile_common_cflags  += -Werror
 PhysXVehicle_profile_common_cflags  += -fpic -fno-exceptions
-PhysXVehicle_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXVehicle_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXVehicle_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -329,7 +329,7 @@ PhysXVehicle_profile_cppflags  += -Wno-invalid-offsetof
 PhysXVehicle_profile_lflags    := $(PhysXVehicle_custom_lflags)
 PhysXVehicle_profile_lflags    += $(addprefix -L, $(PhysXVehicle_profile_lpaths))
 PhysXVehicle_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXVehicle_profile_libraries)) -Wl,--end-group
-PhysXVehicle_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_profile_objsdir  = $(OBJS_DIR)/PhysXVehicle_profile
 PhysXVehicle_profile_cpp_o    = $(addprefix $(PhysXVehicle_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXVehicle_cppfiles)))))
 PhysXVehicle_profile_cc_o    = $(addprefix $(PhysXVehicle_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXVehicle_ccfiles)))))
@@ -385,8 +385,8 @@ $(PhysXVehicle_profile_c_o): $(PhysXVehicle_profile_objsdir)/%.o:
 	  rm -f $(PhysXVehicle_profile_DEPDIR).d
 
 PhysXVehicle_release_hpaths    := 
-PhysXVehicle_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXVehicle_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXVehicle_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXVehicle_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXVehicle_release_hpaths    += ./../../Common/include
 PhysXVehicle_release_hpaths    += ./../../../../PxShared/include
 PhysXVehicle_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -426,7 +426,7 @@ PhysXVehicle_release_common_cflags    += $(addprefix -D, $(PhysXVehicle_release_
 PhysXVehicle_release_common_cflags    += $(addprefix -I, $(PhysXVehicle_release_hpaths))
 PhysXVehicle_release_common_cflags  += -Werror
 PhysXVehicle_release_common_cflags  += -fpic -fno-exceptions
-PhysXVehicle_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXVehicle_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXVehicle_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -442,7 +442,7 @@ PhysXVehicle_release_cppflags  += -Wno-invalid-offsetof
 PhysXVehicle_release_lflags    := $(PhysXVehicle_custom_lflags)
 PhysXVehicle_release_lflags    += $(addprefix -L, $(PhysXVehicle_release_lpaths))
 PhysXVehicle_release_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXVehicle_release_libraries)) -Wl,--end-group
-PhysXVehicle_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXVehicle_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXVehicle_release_objsdir  = $(OBJS_DIR)/PhysXVehicle_release
 PhysXVehicle_release_cpp_o    = $(addprefix $(PhysXVehicle_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXVehicle_cppfiles)))))
 PhysXVehicle_release_cc_o    = $(addprefix $(PhysXVehicle_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXVehicle_ccfiles)))))

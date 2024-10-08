@@ -42,8 +42,8 @@ PhysXCooking_c_profile_dep      = $(addprefix $(DEPSDIR)/PhysXCooking/profile/, 
 PhysXCooking_profile_dep      = $(PhysXCooking_cpp_profile_dep) $(PhysXCooking_cc_profile_dep) $(PhysXCooking_c_profile_dep)
 -include $(PhysXCooking_profile_dep)
 PhysXCooking_release_hpaths    := 
-PhysXCooking_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCooking_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCooking_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCooking_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCooking_release_hpaths    += ./../../Common/include
 PhysXCooking_release_hpaths    += ./../../../../PxShared/include
 PhysXCooking_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -99,7 +99,7 @@ PhysXCooking_release_common_cflags    += $(addprefix -D, $(PhysXCooking_release_
 PhysXCooking_release_common_cflags    += $(addprefix -I, $(PhysXCooking_release_hpaths))
 PhysXCooking_release_common_cflags  += -Werror
 PhysXCooking_release_common_cflags  += -fpic -fno-exceptions
-PhysXCooking_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCooking_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCooking_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -115,7 +115,7 @@ PhysXCooking_release_cppflags  += -Wno-invalid-offsetof
 PhysXCooking_release_lflags    := $(PhysXCooking_custom_lflags)
 PhysXCooking_release_lflags    += $(addprefix -L, $(PhysXCooking_release_lpaths))
 PhysXCooking_release_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCooking_release_libraries)) -Wl,--end-group
-PhysXCooking_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_release_objsdir  = $(OBJS_DIR)/PhysXCooking_release
 PhysXCooking_release_cpp_o    = $(addprefix $(PhysXCooking_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCooking_cppfiles)))))
 PhysXCooking_release_cc_o    = $(addprefix $(PhysXCooking_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCooking_ccfiles)))))
@@ -171,8 +171,8 @@ $(PhysXCooking_release_c_o): $(PhysXCooking_release_objsdir)/%.o:
 	  rm -f $(PhysXCooking_release_DEPDIR).d
 
 PhysXCooking_debug_hpaths    := 
-PhysXCooking_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCooking_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCooking_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCooking_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCooking_debug_hpaths    += ./../../Common/include
 PhysXCooking_debug_hpaths    += ./../../../../PxShared/include
 PhysXCooking_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -220,7 +220,7 @@ PhysXCooking_debug_defines   += _DEBUG
 PhysXCooking_debug_defines   += PX_DEBUG=1
 PhysXCooking_debug_defines   += PX_CHECKED=1
 PhysXCooking_debug_defines   += PX_SUPPORT_PVD=1
-PhysXCooking_debug_defines   += PX_NVTX=1
+PhysXCooking_debug_defines   += PX_NVTX=0
 PhysXCooking_debug_libraries := 
 PhysXCooking_debug_libraries += PxFoundationDEBUG
 PhysXCooking_debug_libraries += PhysX3CommonDEBUG
@@ -231,7 +231,7 @@ PhysXCooking_debug_common_cflags    += $(addprefix -D, $(PhysXCooking_debug_defi
 PhysXCooking_debug_common_cflags    += $(addprefix -I, $(PhysXCooking_debug_hpaths))
 PhysXCooking_debug_common_cflags  += -Werror
 PhysXCooking_debug_common_cflags  += -fpic -fno-exceptions
-PhysXCooking_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCooking_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCooking_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -245,7 +245,7 @@ PhysXCooking_debug_cppflags  += -Wno-invalid-offsetof
 PhysXCooking_debug_lflags    := $(PhysXCooking_custom_lflags)
 PhysXCooking_debug_lflags    += $(addprefix -L, $(PhysXCooking_debug_lpaths))
 PhysXCooking_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCooking_debug_libraries)) -Wl,--end-group
-PhysXCooking_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_debug_objsdir  = $(OBJS_DIR)/PhysXCooking_debug
 PhysXCooking_debug_cpp_o    = $(addprefix $(PhysXCooking_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCooking_cppfiles)))))
 PhysXCooking_debug_cc_o    = $(addprefix $(PhysXCooking_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCooking_ccfiles)))))
@@ -301,8 +301,8 @@ $(PhysXCooking_debug_c_o): $(PhysXCooking_debug_objsdir)/%.o:
 	  rm -f $(PhysXCooking_debug_DEPDIR).d
 
 PhysXCooking_checked_hpaths    := 
-PhysXCooking_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCooking_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCooking_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCooking_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCooking_checked_hpaths    += ./../../Common/include
 PhysXCooking_checked_hpaths    += ./../../../../PxShared/include
 PhysXCooking_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -349,7 +349,7 @@ PhysXCooking_checked_defines   += PX_COOKING
 PhysXCooking_checked_defines   += NDEBUG
 PhysXCooking_checked_defines   += PX_CHECKED=1
 PhysXCooking_checked_defines   += PX_SUPPORT_PVD=1
-PhysXCooking_checked_defines   += PX_NVTX=1
+PhysXCooking_checked_defines   += PX_NVTX=0
 PhysXCooking_checked_libraries := 
 PhysXCooking_checked_libraries += PxFoundationCHECKED
 PhysXCooking_checked_libraries += PhysX3CommonCHECKED
@@ -360,7 +360,7 @@ PhysXCooking_checked_common_cflags    += $(addprefix -D, $(PhysXCooking_checked_
 PhysXCooking_checked_common_cflags    += $(addprefix -I, $(PhysXCooking_checked_hpaths))
 PhysXCooking_checked_common_cflags  += -Werror
 PhysXCooking_checked_common_cflags  += -fpic -fno-exceptions
-PhysXCooking_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCooking_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCooking_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -376,7 +376,7 @@ PhysXCooking_checked_cppflags  += -Wno-invalid-offsetof
 PhysXCooking_checked_lflags    := $(PhysXCooking_custom_lflags)
 PhysXCooking_checked_lflags    += $(addprefix -L, $(PhysXCooking_checked_lpaths))
 PhysXCooking_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCooking_checked_libraries)) -Wl,--end-group
-PhysXCooking_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_checked_objsdir  = $(OBJS_DIR)/PhysXCooking_checked
 PhysXCooking_checked_cpp_o    = $(addprefix $(PhysXCooking_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCooking_cppfiles)))))
 PhysXCooking_checked_cc_o    = $(addprefix $(PhysXCooking_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCooking_ccfiles)))))
@@ -432,8 +432,8 @@ $(PhysXCooking_checked_c_o): $(PhysXCooking_checked_objsdir)/%.o:
 	  rm -f $(PhysXCooking_checked_DEPDIR).d
 
 PhysXCooking_profile_hpaths    := 
-PhysXCooking_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCooking_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCooking_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCooking_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCooking_profile_hpaths    += ./../../Common/include
 PhysXCooking_profile_hpaths    += ./../../../../PxShared/include
 PhysXCooking_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -480,7 +480,7 @@ PhysXCooking_profile_defines   += PX_COOKING
 PhysXCooking_profile_defines   += NDEBUG
 PhysXCooking_profile_defines   += PX_PROFILE=1
 PhysXCooking_profile_defines   += PX_SUPPORT_PVD=1
-PhysXCooking_profile_defines   += PX_NVTX=1
+PhysXCooking_profile_defines   += PX_NVTX=0
 PhysXCooking_profile_libraries := 
 PhysXCooking_profile_libraries += PxFoundationPROFILE
 PhysXCooking_profile_libraries += PhysX3CommonPROFILE
@@ -491,7 +491,7 @@ PhysXCooking_profile_common_cflags    += $(addprefix -D, $(PhysXCooking_profile_
 PhysXCooking_profile_common_cflags    += $(addprefix -I, $(PhysXCooking_profile_hpaths))
 PhysXCooking_profile_common_cflags  += -Werror
 PhysXCooking_profile_common_cflags  += -fpic -fno-exceptions
-PhysXCooking_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCooking_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCooking_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -507,7 +507,7 @@ PhysXCooking_profile_cppflags  += -Wno-invalid-offsetof
 PhysXCooking_profile_lflags    := $(PhysXCooking_custom_lflags)
 PhysXCooking_profile_lflags    += $(addprefix -L, $(PhysXCooking_profile_lpaths))
 PhysXCooking_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCooking_profile_libraries)) -Wl,--end-group
-PhysXCooking_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCooking_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCooking_profile_objsdir  = $(OBJS_DIR)/PhysXCooking_profile
 PhysXCooking_profile_cpp_o    = $(addprefix $(PhysXCooking_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCooking_cppfiles)))))
 PhysXCooking_profile_cc_o    = $(addprefix $(PhysXCooking_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCooking_ccfiles)))))

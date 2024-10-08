@@ -44,8 +44,11 @@ LowLevel_c_release_dep      = $(addprefix $(DEPSDIR)/LowLevel/release/, $(subst 
 LowLevel_release_dep      = $(LowLevel_cpp_release_dep) $(LowLevel_cc_release_dep) $(LowLevel_c_release_dep)
 -include $(LowLevel_release_dep)
 LowLevel_debug_hpaths    := 
-LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+#LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+#LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevel_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+
 LowLevel_debug_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevel_debug_hpaths    += ./../../Common/include
 LowLevel_debug_hpaths    += ./../../../../PxShared/include
@@ -96,7 +99,7 @@ LowLevel_debug_defines   += _DEBUG
 LowLevel_debug_defines   += PX_DEBUG=1
 LowLevel_debug_defines   += PX_CHECKED=1
 LowLevel_debug_defines   += PX_SUPPORT_PVD=1
-LowLevel_debug_defines   += PX_NVTX=1
+LowLevel_debug_defines   += PX_NVTX=0
 LowLevel_debug_libraries := 
 LowLevel_debug_common_cflags	:= $(LowLevel_custom_cflags)
 LowLevel_debug_common_cflags    += -MMD
@@ -104,7 +107,8 @@ LowLevel_debug_common_cflags    += $(addprefix -D, $(LowLevel_debug_defines))
 LowLevel_debug_common_cflags    += $(addprefix -I, $(LowLevel_debug_hpaths))
 LowLevel_debug_common_cflags  += -Werror
 LowLevel_debug_common_cflags  += -fpic -fno-exceptions
-LowLevel_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevel_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevel_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevel_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevel_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -118,7 +122,8 @@ LowLevel_debug_cppflags  += -Wno-invalid-offsetof
 LowLevel_debug_lflags    := $(LowLevel_custom_lflags)
 LowLevel_debug_lflags    += $(addprefix -L, $(LowLevel_debug_lpaths))
 LowLevel_debug_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevel_debug_libraries)) -Wl,--end-group
-LowLevel_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevel_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevel_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_debug_objsdir  = $(OBJS_DIR)/LowLevel_debug
 LowLevel_debug_cpp_o    = $(addprefix $(LowLevel_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevel_cppfiles)))))
 LowLevel_debug_cc_o    = $(addprefix $(LowLevel_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevel_ccfiles)))))
@@ -174,8 +179,8 @@ $(LowLevel_debug_c_o): $(LowLevel_debug_objsdir)/%.o:
 	  rm -f $(LowLevel_debug_DEPDIR).d
 
 LowLevel_checked_hpaths    := 
-LowLevel_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevel_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevel_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevel_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevel_checked_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevel_checked_hpaths    += ./../../Common/include
 LowLevel_checked_hpaths    += ./../../../../PxShared/include
@@ -225,7 +230,7 @@ LowLevel_checked_defines   += PX_PHYSX_STATIC_LIB
 LowLevel_checked_defines   += NDEBUG
 LowLevel_checked_defines   += PX_CHECKED=1
 LowLevel_checked_defines   += PX_SUPPORT_PVD=1
-LowLevel_checked_defines   += PX_NVTX=1
+LowLevel_checked_defines   += PX_NVTX=0
 LowLevel_checked_libraries := 
 LowLevel_checked_common_cflags	:= $(LowLevel_custom_cflags)
 LowLevel_checked_common_cflags    += -MMD
@@ -233,7 +238,7 @@ LowLevel_checked_common_cflags    += $(addprefix -D, $(LowLevel_checked_defines)
 LowLevel_checked_common_cflags    += $(addprefix -I, $(LowLevel_checked_hpaths))
 LowLevel_checked_common_cflags  += -Werror
 LowLevel_checked_common_cflags  += -fpic -fno-exceptions
-LowLevel_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevel_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevel_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -249,7 +254,7 @@ LowLevel_checked_cppflags  += -Wno-invalid-offsetof
 LowLevel_checked_lflags    := $(LowLevel_custom_lflags)
 LowLevel_checked_lflags    += $(addprefix -L, $(LowLevel_checked_lpaths))
 LowLevel_checked_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevel_checked_libraries)) -Wl,--end-group
-LowLevel_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_checked_objsdir  = $(OBJS_DIR)/LowLevel_checked
 LowLevel_checked_cpp_o    = $(addprefix $(LowLevel_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevel_cppfiles)))))
 LowLevel_checked_cc_o    = $(addprefix $(LowLevel_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevel_ccfiles)))))
@@ -305,8 +310,8 @@ $(LowLevel_checked_c_o): $(LowLevel_checked_objsdir)/%.o:
 	  rm -f $(LowLevel_checked_DEPDIR).d
 
 LowLevel_profile_hpaths    := 
-LowLevel_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevel_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevel_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevel_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevel_profile_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevel_profile_hpaths    += ./../../Common/include
 LowLevel_profile_hpaths    += ./../../../../PxShared/include
@@ -356,7 +361,7 @@ LowLevel_profile_defines   += PX_PHYSX_STATIC_LIB
 LowLevel_profile_defines   += NDEBUG
 LowLevel_profile_defines   += PX_PROFILE=1
 LowLevel_profile_defines   += PX_SUPPORT_PVD=1
-LowLevel_profile_defines   += PX_NVTX=1
+LowLevel_profile_defines   += PX_NVTX=0
 LowLevel_profile_libraries := 
 LowLevel_profile_common_cflags	:= $(LowLevel_custom_cflags)
 LowLevel_profile_common_cflags    += -MMD
@@ -364,7 +369,7 @@ LowLevel_profile_common_cflags    += $(addprefix -D, $(LowLevel_profile_defines)
 LowLevel_profile_common_cflags    += $(addprefix -I, $(LowLevel_profile_hpaths))
 LowLevel_profile_common_cflags  += -Werror
 LowLevel_profile_common_cflags  += -fpic -fno-exceptions
-LowLevel_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevel_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevel_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -380,7 +385,7 @@ LowLevel_profile_cppflags  += -Wno-invalid-offsetof
 LowLevel_profile_lflags    := $(LowLevel_custom_lflags)
 LowLevel_profile_lflags    += $(addprefix -L, $(LowLevel_profile_lpaths))
 LowLevel_profile_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevel_profile_libraries)) -Wl,--end-group
-LowLevel_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_profile_objsdir  = $(OBJS_DIR)/LowLevel_profile
 LowLevel_profile_cpp_o    = $(addprefix $(LowLevel_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevel_cppfiles)))))
 LowLevel_profile_cc_o    = $(addprefix $(LowLevel_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevel_ccfiles)))))
@@ -436,8 +441,8 @@ $(LowLevel_profile_c_o): $(LowLevel_profile_objsdir)/%.o:
 	  rm -f $(LowLevel_profile_DEPDIR).d
 
 LowLevel_release_hpaths    := 
-LowLevel_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevel_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevel_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevel_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevel_release_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevel_release_hpaths    += ./../../Common/include
 LowLevel_release_hpaths    += ./../../../../PxShared/include
@@ -493,7 +498,7 @@ LowLevel_release_common_cflags    += $(addprefix -D, $(LowLevel_release_defines)
 LowLevel_release_common_cflags    += $(addprefix -I, $(LowLevel_release_hpaths))
 LowLevel_release_common_cflags  += -Werror
 LowLevel_release_common_cflags  += -fpic -fno-exceptions
-LowLevel_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevel_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevel_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -509,7 +514,7 @@ LowLevel_release_cppflags  += -Wno-invalid-offsetof
 LowLevel_release_lflags    := $(LowLevel_custom_lflags)
 LowLevel_release_lflags    += $(addprefix -L, $(LowLevel_release_lpaths))
 LowLevel_release_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevel_release_libraries)) -Wl,--end-group
-LowLevel_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevel_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevel_release_objsdir  = $(OBJS_DIR)/LowLevel_release
 LowLevel_release_cpp_o    = $(addprefix $(LowLevel_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevel_cppfiles)))))
 LowLevel_release_cc_o    = $(addprefix $(LowLevel_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevel_ccfiles)))))

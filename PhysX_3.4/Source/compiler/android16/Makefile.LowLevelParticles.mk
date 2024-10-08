@@ -58,8 +58,13 @@ LowLevelParticles_debug_hpaths    += ./../../GeomUtils/src/convex
 LowLevelParticles_debug_hpaths    += ./../../GeomUtils/src/hf
 LowLevelParticles_debug_hpaths    += ./../../GeomUtils/src/mesh
 LowLevelParticles_debug_hpaths    += ./../../GeomUtils/headers
-LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+
+#LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+#LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelParticles_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+
+
 LowLevelParticles_debug_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevelParticles_debug_lpaths    := 
 LowLevelParticles_debug_defines   := $(LowLevelParticles_custom_defines)
@@ -75,7 +80,7 @@ LowLevelParticles_debug_defines   += _DEBUG
 LowLevelParticles_debug_defines   += PX_DEBUG=1
 LowLevelParticles_debug_defines   += PX_CHECKED=1
 LowLevelParticles_debug_defines   += PX_SUPPORT_PVD=1
-LowLevelParticles_debug_defines   += PX_NVTX=1
+LowLevelParticles_debug_defines   += PX_NVTX=0
 LowLevelParticles_debug_libraries := 
 LowLevelParticles_debug_common_cflags	:= $(LowLevelParticles_custom_cflags)
 LowLevelParticles_debug_common_cflags    += -MMD
@@ -83,7 +88,8 @@ LowLevelParticles_debug_common_cflags    += $(addprefix -D, $(LowLevelParticles_
 LowLevelParticles_debug_common_cflags    += $(addprefix -I, $(LowLevelParticles_debug_hpaths))
 LowLevelParticles_debug_common_cflags  += -Werror
 LowLevelParticles_debug_common_cflags  += -fpic -fno-exceptions
-LowLevelParticles_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelParticles_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelParticles_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelParticles_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelParticles_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -97,7 +103,8 @@ LowLevelParticles_debug_cppflags  += -Wno-invalid-offsetof
 LowLevelParticles_debug_lflags    := $(LowLevelParticles_custom_lflags)
 LowLevelParticles_debug_lflags    += $(addprefix -L, $(LowLevelParticles_debug_lpaths))
 LowLevelParticles_debug_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelParticles_debug_libraries)) -Wl,--end-group
-LowLevelParticles_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelParticles_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelParticles_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_debug_objsdir  = $(OBJS_DIR)/LowLevelParticles_debug
 LowLevelParticles_debug_cpp_o    = $(addprefix $(LowLevelParticles_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelParticles_cppfiles)))))
 LowLevelParticles_debug_cc_o    = $(addprefix $(LowLevelParticles_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelParticles_ccfiles)))))
@@ -172,8 +179,8 @@ LowLevelParticles_checked_hpaths    += ./../../GeomUtils/src/convex
 LowLevelParticles_checked_hpaths    += ./../../GeomUtils/src/hf
 LowLevelParticles_checked_hpaths    += ./../../GeomUtils/src/mesh
 LowLevelParticles_checked_hpaths    += ./../../GeomUtils/headers
-LowLevelParticles_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelParticles_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelParticles_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelParticles_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelParticles_checked_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevelParticles_checked_lpaths    := 
 LowLevelParticles_checked_defines   := $(LowLevelParticles_custom_defines)
@@ -188,7 +195,7 @@ LowLevelParticles_checked_defines   += PX_PHYSX_STATIC_LIB
 LowLevelParticles_checked_defines   += NDEBUG
 LowLevelParticles_checked_defines   += PX_CHECKED=1
 LowLevelParticles_checked_defines   += PX_SUPPORT_PVD=1
-LowLevelParticles_checked_defines   += PX_NVTX=1
+LowLevelParticles_checked_defines   += PX_NVTX=0
 LowLevelParticles_checked_libraries := 
 LowLevelParticles_checked_common_cflags	:= $(LowLevelParticles_custom_cflags)
 LowLevelParticles_checked_common_cflags    += -MMD
@@ -196,7 +203,7 @@ LowLevelParticles_checked_common_cflags    += $(addprefix -D, $(LowLevelParticle
 LowLevelParticles_checked_common_cflags    += $(addprefix -I, $(LowLevelParticles_checked_hpaths))
 LowLevelParticles_checked_common_cflags  += -Werror
 LowLevelParticles_checked_common_cflags  += -fpic -fno-exceptions
-LowLevelParticles_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelParticles_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelParticles_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -212,7 +219,7 @@ LowLevelParticles_checked_cppflags  += -Wno-invalid-offsetof
 LowLevelParticles_checked_lflags    := $(LowLevelParticles_custom_lflags)
 LowLevelParticles_checked_lflags    += $(addprefix -L, $(LowLevelParticles_checked_lpaths))
 LowLevelParticles_checked_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelParticles_checked_libraries)) -Wl,--end-group
-LowLevelParticles_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_checked_objsdir  = $(OBJS_DIR)/LowLevelParticles_checked
 LowLevelParticles_checked_cpp_o    = $(addprefix $(LowLevelParticles_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelParticles_cppfiles)))))
 LowLevelParticles_checked_cc_o    = $(addprefix $(LowLevelParticles_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelParticles_ccfiles)))))
@@ -287,8 +294,8 @@ LowLevelParticles_profile_hpaths    += ./../../GeomUtils/src/convex
 LowLevelParticles_profile_hpaths    += ./../../GeomUtils/src/hf
 LowLevelParticles_profile_hpaths    += ./../../GeomUtils/src/mesh
 LowLevelParticles_profile_hpaths    += ./../../GeomUtils/headers
-LowLevelParticles_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelParticles_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelParticles_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelParticles_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelParticles_profile_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevelParticles_profile_lpaths    := 
 LowLevelParticles_profile_defines   := $(LowLevelParticles_custom_defines)
@@ -303,7 +310,7 @@ LowLevelParticles_profile_defines   += PX_PHYSX_STATIC_LIB
 LowLevelParticles_profile_defines   += NDEBUG
 LowLevelParticles_profile_defines   += PX_PROFILE=1
 LowLevelParticles_profile_defines   += PX_SUPPORT_PVD=1
-LowLevelParticles_profile_defines   += PX_NVTX=1
+LowLevelParticles_profile_defines   += PX_NVTX=0
 LowLevelParticles_profile_libraries := 
 LowLevelParticles_profile_common_cflags	:= $(LowLevelParticles_custom_cflags)
 LowLevelParticles_profile_common_cflags    += -MMD
@@ -311,7 +318,7 @@ LowLevelParticles_profile_common_cflags    += $(addprefix -D, $(LowLevelParticle
 LowLevelParticles_profile_common_cflags    += $(addprefix -I, $(LowLevelParticles_profile_hpaths))
 LowLevelParticles_profile_common_cflags  += -Werror
 LowLevelParticles_profile_common_cflags  += -fpic -fno-exceptions
-LowLevelParticles_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelParticles_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelParticles_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -327,7 +334,7 @@ LowLevelParticles_profile_cppflags  += -Wno-invalid-offsetof
 LowLevelParticles_profile_lflags    := $(LowLevelParticles_custom_lflags)
 LowLevelParticles_profile_lflags    += $(addprefix -L, $(LowLevelParticles_profile_lpaths))
 LowLevelParticles_profile_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelParticles_profile_libraries)) -Wl,--end-group
-LowLevelParticles_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_profile_objsdir  = $(OBJS_DIR)/LowLevelParticles_profile
 LowLevelParticles_profile_cpp_o    = $(addprefix $(LowLevelParticles_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelParticles_cppfiles)))))
 LowLevelParticles_profile_cc_o    = $(addprefix $(LowLevelParticles_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelParticles_ccfiles)))))
@@ -402,8 +409,8 @@ LowLevelParticles_release_hpaths    += ./../../GeomUtils/src/convex
 LowLevelParticles_release_hpaths    += ./../../GeomUtils/src/hf
 LowLevelParticles_release_hpaths    += ./../../GeomUtils/src/mesh
 LowLevelParticles_release_hpaths    += ./../../GeomUtils/headers
-LowLevelParticles_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelParticles_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelParticles_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelParticles_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelParticles_release_hpaths    += ./../../../../Externals/nvToolsExt/1/include
 LowLevelParticles_release_lpaths    := 
 LowLevelParticles_release_defines   := $(LowLevelParticles_custom_defines)
@@ -424,7 +431,7 @@ LowLevelParticles_release_common_cflags    += $(addprefix -D, $(LowLevelParticle
 LowLevelParticles_release_common_cflags    += $(addprefix -I, $(LowLevelParticles_release_hpaths))
 LowLevelParticles_release_common_cflags  += -Werror
 LowLevelParticles_release_common_cflags  += -fpic -fno-exceptions
-LowLevelParticles_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelParticles_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelParticles_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -440,7 +447,7 @@ LowLevelParticles_release_cppflags  += -Wno-invalid-offsetof
 LowLevelParticles_release_lflags    := $(LowLevelParticles_custom_lflags)
 LowLevelParticles_release_lflags    += $(addprefix -L, $(LowLevelParticles_release_lpaths))
 LowLevelParticles_release_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelParticles_release_libraries)) -Wl,--end-group
-LowLevelParticles_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelParticles_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelParticles_release_objsdir  = $(OBJS_DIR)/LowLevelParticles_release
 LowLevelParticles_release_cpp_o    = $(addprefix $(LowLevelParticles_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelParticles_cppfiles)))))
 LowLevelParticles_release_cc_o    = $(addprefix $(LowLevelParticles_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelParticles_ccfiles)))))

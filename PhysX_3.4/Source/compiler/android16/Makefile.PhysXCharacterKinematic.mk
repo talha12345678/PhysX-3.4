@@ -33,8 +33,8 @@ PhysXCharacterKinematic_c_release_dep      = $(addprefix $(DEPSDIR)/PhysXCharact
 PhysXCharacterKinematic_release_dep      = $(PhysXCharacterKinematic_cpp_release_dep) $(PhysXCharacterKinematic_cc_release_dep) $(PhysXCharacterKinematic_c_release_dep)
 -include $(PhysXCharacterKinematic_release_dep)
 PhysXCharacterKinematic_debug_hpaths    := 
-PhysXCharacterKinematic_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCharacterKinematic_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCharacterKinematic_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCharacterKinematic_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCharacterKinematic_debug_hpaths    += ./../../Common/include
 PhysXCharacterKinematic_debug_hpaths    += ./../../../../PxShared/include
 PhysXCharacterKinematic_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -72,7 +72,7 @@ PhysXCharacterKinematic_debug_defines   += _DEBUG
 PhysXCharacterKinematic_debug_defines   += PX_DEBUG=1
 PhysXCharacterKinematic_debug_defines   += PX_CHECKED=1
 PhysXCharacterKinematic_debug_defines   += PX_SUPPORT_PVD=1
-PhysXCharacterKinematic_debug_defines   += PX_NVTX=1
+PhysXCharacterKinematic_debug_defines   += PX_NVTX=0
 PhysXCharacterKinematic_debug_libraries := 
 PhysXCharacterKinematic_debug_libraries += PhysX3ExtensionsDEBUG
 PhysXCharacterKinematic_debug_libraries += PxFoundationDEBUG
@@ -83,7 +83,7 @@ PhysXCharacterKinematic_debug_common_cflags    += $(addprefix -D, $(PhysXCharact
 PhysXCharacterKinematic_debug_common_cflags    += $(addprefix -I, $(PhysXCharacterKinematic_debug_hpaths))
 PhysXCharacterKinematic_debug_common_cflags  += -Werror
 PhysXCharacterKinematic_debug_common_cflags  += -fpic -fno-exceptions
-PhysXCharacterKinematic_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCharacterKinematic_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCharacterKinematic_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -97,7 +97,7 @@ PhysXCharacterKinematic_debug_cppflags  += -Wno-invalid-offsetof
 PhysXCharacterKinematic_debug_lflags    := $(PhysXCharacterKinematic_custom_lflags)
 PhysXCharacterKinematic_debug_lflags    += $(addprefix -L, $(PhysXCharacterKinematic_debug_lpaths))
 PhysXCharacterKinematic_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCharacterKinematic_debug_libraries)) -Wl,--end-group
-PhysXCharacterKinematic_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_debug_objsdir  = $(OBJS_DIR)/PhysXCharacterKinematic_debug
 PhysXCharacterKinematic_debug_cpp_o    = $(addprefix $(PhysXCharacterKinematic_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCharacterKinematic_cppfiles)))))
 PhysXCharacterKinematic_debug_cc_o    = $(addprefix $(PhysXCharacterKinematic_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCharacterKinematic_ccfiles)))))
@@ -153,8 +153,8 @@ $(PhysXCharacterKinematic_debug_c_o): $(PhysXCharacterKinematic_debug_objsdir)/%
 	  rm -f $(PhysXCharacterKinematic_debug_DEPDIR).d
 
 PhysXCharacterKinematic_checked_hpaths    := 
-PhysXCharacterKinematic_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCharacterKinematic_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCharacterKinematic_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCharacterKinematic_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCharacterKinematic_checked_hpaths    += ./../../Common/include
 PhysXCharacterKinematic_checked_hpaths    += ./../../../../PxShared/include
 PhysXCharacterKinematic_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -191,7 +191,7 @@ PhysXCharacterKinematic_checked_defines   += PX_PHYSX_STATIC_LIB
 PhysXCharacterKinematic_checked_defines   += NDEBUG
 PhysXCharacterKinematic_checked_defines   += PX_CHECKED=1
 PhysXCharacterKinematic_checked_defines   += PX_SUPPORT_PVD=1
-PhysXCharacterKinematic_checked_defines   += PX_NVTX=1
+PhysXCharacterKinematic_checked_defines   += PX_NVTX=0
 PhysXCharacterKinematic_checked_libraries := 
 PhysXCharacterKinematic_checked_libraries += PhysX3ExtensionsCHECKED
 PhysXCharacterKinematic_checked_libraries += PxFoundationCHECKED
@@ -202,7 +202,7 @@ PhysXCharacterKinematic_checked_common_cflags    += $(addprefix -D, $(PhysXChara
 PhysXCharacterKinematic_checked_common_cflags    += $(addprefix -I, $(PhysXCharacterKinematic_checked_hpaths))
 PhysXCharacterKinematic_checked_common_cflags  += -Werror
 PhysXCharacterKinematic_checked_common_cflags  += -fpic -fno-exceptions
-PhysXCharacterKinematic_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCharacterKinematic_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCharacterKinematic_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -218,7 +218,7 @@ PhysXCharacterKinematic_checked_cppflags  += -Wno-invalid-offsetof
 PhysXCharacterKinematic_checked_lflags    := $(PhysXCharacterKinematic_custom_lflags)
 PhysXCharacterKinematic_checked_lflags    += $(addprefix -L, $(PhysXCharacterKinematic_checked_lpaths))
 PhysXCharacterKinematic_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCharacterKinematic_checked_libraries)) -Wl,--end-group
-PhysXCharacterKinematic_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_checked_objsdir  = $(OBJS_DIR)/PhysXCharacterKinematic_checked
 PhysXCharacterKinematic_checked_cpp_o    = $(addprefix $(PhysXCharacterKinematic_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCharacterKinematic_cppfiles)))))
 PhysXCharacterKinematic_checked_cc_o    = $(addprefix $(PhysXCharacterKinematic_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCharacterKinematic_ccfiles)))))
@@ -274,8 +274,8 @@ $(PhysXCharacterKinematic_checked_c_o): $(PhysXCharacterKinematic_checked_objsdi
 	  rm -f $(PhysXCharacterKinematic_checked_DEPDIR).d
 
 PhysXCharacterKinematic_profile_hpaths    := 
-PhysXCharacterKinematic_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCharacterKinematic_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCharacterKinematic_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCharacterKinematic_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCharacterKinematic_profile_hpaths    += ./../../Common/include
 PhysXCharacterKinematic_profile_hpaths    += ./../../../../PxShared/include
 PhysXCharacterKinematic_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -312,7 +312,7 @@ PhysXCharacterKinematic_profile_defines   += PX_PHYSX_STATIC_LIB
 PhysXCharacterKinematic_profile_defines   += NDEBUG
 PhysXCharacterKinematic_profile_defines   += PX_PROFILE=1
 PhysXCharacterKinematic_profile_defines   += PX_SUPPORT_PVD=1
-PhysXCharacterKinematic_profile_defines   += PX_NVTX=1
+PhysXCharacterKinematic_profile_defines   += PX_NVTX=0
 PhysXCharacterKinematic_profile_libraries := 
 PhysXCharacterKinematic_profile_libraries += PhysX3ExtensionsPROFILE
 PhysXCharacterKinematic_profile_libraries += PxFoundationPROFILE
@@ -323,7 +323,7 @@ PhysXCharacterKinematic_profile_common_cflags    += $(addprefix -D, $(PhysXChara
 PhysXCharacterKinematic_profile_common_cflags    += $(addprefix -I, $(PhysXCharacterKinematic_profile_hpaths))
 PhysXCharacterKinematic_profile_common_cflags  += -Werror
 PhysXCharacterKinematic_profile_common_cflags  += -fpic -fno-exceptions
-PhysXCharacterKinematic_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCharacterKinematic_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCharacterKinematic_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -339,7 +339,7 @@ PhysXCharacterKinematic_profile_cppflags  += -Wno-invalid-offsetof
 PhysXCharacterKinematic_profile_lflags    := $(PhysXCharacterKinematic_custom_lflags)
 PhysXCharacterKinematic_profile_lflags    += $(addprefix -L, $(PhysXCharacterKinematic_profile_lpaths))
 PhysXCharacterKinematic_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCharacterKinematic_profile_libraries)) -Wl,--end-group
-PhysXCharacterKinematic_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_profile_objsdir  = $(OBJS_DIR)/PhysXCharacterKinematic_profile
 PhysXCharacterKinematic_profile_cpp_o    = $(addprefix $(PhysXCharacterKinematic_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCharacterKinematic_cppfiles)))))
 PhysXCharacterKinematic_profile_cc_o    = $(addprefix $(PhysXCharacterKinematic_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCharacterKinematic_ccfiles)))))
@@ -395,8 +395,8 @@ $(PhysXCharacterKinematic_profile_c_o): $(PhysXCharacterKinematic_profile_objsdi
 	  rm -f $(PhysXCharacterKinematic_profile_DEPDIR).d
 
 PhysXCharacterKinematic_release_hpaths    := 
-PhysXCharacterKinematic_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PhysXCharacterKinematic_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PhysXCharacterKinematic_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PhysXCharacterKinematic_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PhysXCharacterKinematic_release_hpaths    += ./../../Common/include
 PhysXCharacterKinematic_release_hpaths    += ./../../../../PxShared/include
 PhysXCharacterKinematic_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -442,7 +442,7 @@ PhysXCharacterKinematic_release_common_cflags    += $(addprefix -D, $(PhysXChara
 PhysXCharacterKinematic_release_common_cflags    += $(addprefix -I, $(PhysXCharacterKinematic_release_hpaths))
 PhysXCharacterKinematic_release_common_cflags  += -Werror
 PhysXCharacterKinematic_release_common_cflags  += -fpic -fno-exceptions
-PhysXCharacterKinematic_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PhysXCharacterKinematic_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PhysXCharacterKinematic_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -458,7 +458,7 @@ PhysXCharacterKinematic_release_cppflags  += -Wno-invalid-offsetof
 PhysXCharacterKinematic_release_lflags    := $(PhysXCharacterKinematic_custom_lflags)
 PhysXCharacterKinematic_release_lflags    += $(addprefix -L, $(PhysXCharacterKinematic_release_lpaths))
 PhysXCharacterKinematic_release_lflags    += -Wl,--start-group $(addprefix -l, $(PhysXCharacterKinematic_release_libraries)) -Wl,--end-group
-PhysXCharacterKinematic_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PhysXCharacterKinematic_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PhysXCharacterKinematic_release_objsdir  = $(OBJS_DIR)/PhysXCharacterKinematic_release
 PhysXCharacterKinematic_release_cpp_o    = $(addprefix $(PhysXCharacterKinematic_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PhysXCharacterKinematic_cppfiles)))))
 PhysXCharacterKinematic_release_cc_o    = $(addprefix $(PhysXCharacterKinematic_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PhysXCharacterKinematic_ccfiles)))))

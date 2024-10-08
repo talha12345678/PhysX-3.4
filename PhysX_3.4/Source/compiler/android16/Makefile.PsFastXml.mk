@@ -27,8 +27,8 @@ PsFastXml_debug_hpaths    :=
 PsFastXml_debug_hpaths    += ./../../../../PxShared/include
 PsFastXml_debug_hpaths    += ./../../../../PxShared/src/foundation/include
 PsFastXml_debug_hpaths    += ./../../../../PxShared/src/fastxml/include
-PsFastXml_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PsFastXml_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PsFastXml_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PsFastXml_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PsFastXml_debug_lpaths    := 
 PsFastXml_debug_defines   := $(PsFastXml_custom_defines)
 PsFastXml_debug_defines   += PX_FOUNDATION_DLL=0
@@ -43,7 +43,7 @@ PsFastXml_debug_defines   += PxShared_STATIC_LIB
 PsFastXml_debug_defines   += _DEBUG
 PsFastXml_debug_defines   += PX_DEBUG=1
 PsFastXml_debug_defines   += PX_CHECKED=1
-PsFastXml_debug_defines   += PX_NVTX=1
+PsFastXml_debug_defines   += PX_NVTX=0
 PsFastXml_debug_libraries := 
 PsFastXml_debug_common_cflags	:= $(PsFastXml_custom_cflags)
 PsFastXml_debug_common_cflags    += -MMD
@@ -51,7 +51,7 @@ PsFastXml_debug_common_cflags    += $(addprefix -D, $(PsFastXml_debug_defines))
 PsFastXml_debug_common_cflags    += $(addprefix -I, $(PsFastXml_debug_hpaths))
 PsFastXml_debug_common_cflags  += -Werror
 PsFastXml_debug_common_cflags  += -fpic -fno-exceptions
-PsFastXml_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PsFastXml_debug_common_cflags  += -g3 -gdwarf-2
 PsFastXml_debug_cflags	:= $(PsFastXml_debug_common_cflags)
@@ -60,7 +60,7 @@ PsFastXml_debug_cppflags  += -fno-rtti
 PsFastXml_debug_lflags    := $(PsFastXml_custom_lflags)
 PsFastXml_debug_lflags    += $(addprefix -L, $(PsFastXml_debug_lpaths))
 PsFastXml_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PsFastXml_debug_libraries)) -Wl,--end-group
-PsFastXml_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_debug_objsdir  = $(OBJS_DIR)/PsFastXml_debug
 PsFastXml_debug_cpp_o    = $(addprefix $(PsFastXml_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PsFastXml_cppfiles)))))
 PsFastXml_debug_cc_o    = $(addprefix $(PsFastXml_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PsFastXml_ccfiles)))))
@@ -119,8 +119,8 @@ PsFastXml_release_hpaths    :=
 PsFastXml_release_hpaths    += ./../../../../PxShared/include
 PsFastXml_release_hpaths    += ./../../../../PxShared/src/foundation/include
 PsFastXml_release_hpaths    += ./../../../../PxShared/src/fastxml/include
-PsFastXml_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PsFastXml_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PsFastXml_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PsFastXml_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PsFastXml_release_lpaths    := 
 PsFastXml_release_defines   := $(PsFastXml_custom_defines)
 PsFastXml_release_defines   += PX_FOUNDATION_DLL=0
@@ -140,7 +140,7 @@ PsFastXml_release_common_cflags    += $(addprefix -D, $(PsFastXml_release_define
 PsFastXml_release_common_cflags    += $(addprefix -I, $(PsFastXml_release_hpaths))
 PsFastXml_release_common_cflags  += -Werror
 PsFastXml_release_common_cflags  += -fpic -fno-exceptions
-PsFastXml_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PsFastXml_release_common_cflags  += -O3 -fno-strict-aliasing
 PsFastXml_release_common_cflags  += -ffunction-sections -funwind-tables -fstack-protector
@@ -151,7 +151,7 @@ PsFastXml_release_cppflags  += -fno-rtti
 PsFastXml_release_lflags    := $(PsFastXml_custom_lflags)
 PsFastXml_release_lflags    += $(addprefix -L, $(PsFastXml_release_lpaths))
 PsFastXml_release_lflags    += -Wl,--start-group $(addprefix -l, $(PsFastXml_release_libraries)) -Wl,--end-group
-PsFastXml_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_release_objsdir  = $(OBJS_DIR)/PsFastXml_release
 PsFastXml_release_cpp_o    = $(addprefix $(PsFastXml_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PsFastXml_cppfiles)))))
 PsFastXml_release_cc_o    = $(addprefix $(PsFastXml_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PsFastXml_ccfiles)))))
@@ -210,8 +210,8 @@ PsFastXml_checked_hpaths    :=
 PsFastXml_checked_hpaths    += ./../../../../PxShared/include
 PsFastXml_checked_hpaths    += ./../../../../PxShared/src/foundation/include
 PsFastXml_checked_hpaths    += ./../../../../PxShared/src/fastxml/include
-PsFastXml_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PsFastXml_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PsFastXml_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PsFastXml_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PsFastXml_checked_lpaths    := 
 PsFastXml_checked_defines   := $(PsFastXml_custom_defines)
 PsFastXml_checked_defines   += PX_FOUNDATION_DLL=0
@@ -225,7 +225,7 @@ PsFastXml_checked_defines   += __ARM_ARCH_5TE__
 PsFastXml_checked_defines   += PxShared_STATIC_LIB
 PsFastXml_checked_defines   += NDEBUG
 PsFastXml_checked_defines   += PX_CHECKED=1
-PsFastXml_checked_defines   += PX_NVTX=1
+PsFastXml_checked_defines   += PX_NVTX=0
 PsFastXml_checked_libraries := 
 PsFastXml_checked_common_cflags	:= $(PsFastXml_custom_cflags)
 PsFastXml_checked_common_cflags    += -MMD
@@ -233,7 +233,7 @@ PsFastXml_checked_common_cflags    += $(addprefix -D, $(PsFastXml_checked_define
 PsFastXml_checked_common_cflags    += $(addprefix -I, $(PsFastXml_checked_hpaths))
 PsFastXml_checked_common_cflags  += -Werror
 PsFastXml_checked_common_cflags  += -fpic -fno-exceptions
-PsFastXml_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PsFastXml_checked_common_cflags  += -g3 -gdwarf-2 -O3 -fno-strict-aliasing
 PsFastXml_checked_common_cflags  += -ffunction-sections -funwind-tables -fstack-protector
@@ -244,7 +244,7 @@ PsFastXml_checked_cppflags  += -fno-rtti
 PsFastXml_checked_lflags    := $(PsFastXml_custom_lflags)
 PsFastXml_checked_lflags    += $(addprefix -L, $(PsFastXml_checked_lpaths))
 PsFastXml_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PsFastXml_checked_libraries)) -Wl,--end-group
-PsFastXml_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_checked_objsdir  = $(OBJS_DIR)/PsFastXml_checked
 PsFastXml_checked_cpp_o    = $(addprefix $(PsFastXml_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PsFastXml_cppfiles)))))
 PsFastXml_checked_cc_o    = $(addprefix $(PsFastXml_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PsFastXml_ccfiles)))))
@@ -303,8 +303,8 @@ PsFastXml_profile_hpaths    :=
 PsFastXml_profile_hpaths    += ./../../../../PxShared/include
 PsFastXml_profile_hpaths    += ./../../../../PxShared/src/foundation/include
 PsFastXml_profile_hpaths    += ./../../../../PxShared/src/fastxml/include
-PsFastXml_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PsFastXml_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PsFastXml_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PsFastXml_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PsFastXml_profile_lpaths    := 
 PsFastXml_profile_defines   := $(PsFastXml_custom_defines)
 PsFastXml_profile_defines   += PX_FOUNDATION_DLL=0
@@ -318,7 +318,7 @@ PsFastXml_profile_defines   += __ARM_ARCH_5TE__
 PsFastXml_profile_defines   += PxShared_STATIC_LIB
 PsFastXml_profile_defines   += NDEBUG
 PsFastXml_profile_defines   += PX_PROFILE=1
-PsFastXml_profile_defines   += PX_NVTX=1
+PsFastXml_profile_defines   += PX_NVTX=0
 PsFastXml_profile_libraries := 
 PsFastXml_profile_common_cflags	:= $(PsFastXml_custom_cflags)
 PsFastXml_profile_common_cflags    += -MMD
@@ -326,7 +326,7 @@ PsFastXml_profile_common_cflags    += $(addprefix -D, $(PsFastXml_profile_define
 PsFastXml_profile_common_cflags    += $(addprefix -I, $(PsFastXml_profile_hpaths))
 PsFastXml_profile_common_cflags  += -Werror
 PsFastXml_profile_common_cflags  += -fpic -fno-exceptions
-PsFastXml_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PsFastXml_profile_common_cflags  += -O3 -fno-strict-aliasing
 PsFastXml_profile_common_cflags  += -ffunction-sections -funwind-tables -fstack-protector
@@ -337,7 +337,7 @@ PsFastXml_profile_cppflags  += -fno-rtti
 PsFastXml_profile_lflags    := $(PsFastXml_custom_lflags)
 PsFastXml_profile_lflags    += $(addprefix -L, $(PsFastXml_profile_lpaths))
 PsFastXml_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PsFastXml_profile_libraries)) -Wl,--end-group
-PsFastXml_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PsFastXml_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PsFastXml_profile_objsdir  = $(OBJS_DIR)/PsFastXml_profile
 PsFastXml_profile_cpp_o    = $(addprefix $(PsFastXml_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PsFastXml_cppfiles)))))
 PsFastXml_profile_cc_o    = $(addprefix $(PsFastXml_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PsFastXml_ccfiles)))))

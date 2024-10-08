@@ -36,8 +36,8 @@ SceneQuery_c_release_dep      = $(addprefix $(DEPSDIR)/SceneQuery/release/, $(su
 SceneQuery_release_dep      = $(SceneQuery_cpp_release_dep) $(SceneQuery_cc_release_dep) $(SceneQuery_c_release_dep)
 -include $(SceneQuery_release_dep)
 SceneQuery_debug_hpaths    := 
-SceneQuery_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SceneQuery_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SceneQuery_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SceneQuery_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SceneQuery_debug_hpaths    += ./../../Common/include
 SceneQuery_debug_hpaths    += ./../../../../PxShared/include
 SceneQuery_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -83,7 +83,7 @@ SceneQuery_debug_defines   += _DEBUG
 SceneQuery_debug_defines   += PX_DEBUG=1
 SceneQuery_debug_defines   += PX_CHECKED=1
 SceneQuery_debug_defines   += PX_SUPPORT_PVD=1
-SceneQuery_debug_defines   += PX_NVTX=1
+SceneQuery_debug_defines   += PX_NVTX=0
 SceneQuery_debug_libraries := 
 SceneQuery_debug_common_cflags	:= $(SceneQuery_custom_cflags)
 SceneQuery_debug_common_cflags    += -MMD
@@ -91,7 +91,7 @@ SceneQuery_debug_common_cflags    += $(addprefix -D, $(SceneQuery_debug_defines)
 SceneQuery_debug_common_cflags    += $(addprefix -I, $(SceneQuery_debug_hpaths))
 SceneQuery_debug_common_cflags  += -Werror
 SceneQuery_debug_common_cflags  += -fpic -fno-exceptions
-SceneQuery_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SceneQuery_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SceneQuery_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -105,7 +105,7 @@ SceneQuery_debug_cppflags  += -Wno-invalid-offsetof
 SceneQuery_debug_lflags    := $(SceneQuery_custom_lflags)
 SceneQuery_debug_lflags    += $(addprefix -L, $(SceneQuery_debug_lpaths))
 SceneQuery_debug_lflags    += -Wl,--start-group $(addprefix -l, $(SceneQuery_debug_libraries)) -Wl,--end-group
-SceneQuery_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_debug_objsdir  = $(OBJS_DIR)/SceneQuery_debug
 SceneQuery_debug_cpp_o    = $(addprefix $(SceneQuery_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SceneQuery_cppfiles)))))
 SceneQuery_debug_cc_o    = $(addprefix $(SceneQuery_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SceneQuery_ccfiles)))))
@@ -161,8 +161,8 @@ $(SceneQuery_debug_c_o): $(SceneQuery_debug_objsdir)/%.o:
 	  rm -f $(SceneQuery_debug_DEPDIR).d
 
 SceneQuery_checked_hpaths    := 
-SceneQuery_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SceneQuery_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SceneQuery_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SceneQuery_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SceneQuery_checked_hpaths    += ./../../Common/include
 SceneQuery_checked_hpaths    += ./../../../../PxShared/include
 SceneQuery_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -207,7 +207,7 @@ SceneQuery_checked_defines   += PX_PHYSX_STATIC_LIB
 SceneQuery_checked_defines   += NDEBUG
 SceneQuery_checked_defines   += PX_CHECKED=1
 SceneQuery_checked_defines   += PX_SUPPORT_PVD=1
-SceneQuery_checked_defines   += PX_NVTX=1
+SceneQuery_checked_defines   += PX_NVTX=0
 SceneQuery_checked_libraries := 
 SceneQuery_checked_common_cflags	:= $(SceneQuery_custom_cflags)
 SceneQuery_checked_common_cflags    += -MMD
@@ -215,7 +215,7 @@ SceneQuery_checked_common_cflags    += $(addprefix -D, $(SceneQuery_checked_defi
 SceneQuery_checked_common_cflags    += $(addprefix -I, $(SceneQuery_checked_hpaths))
 SceneQuery_checked_common_cflags  += -Werror
 SceneQuery_checked_common_cflags  += -fpic -fno-exceptions
-SceneQuery_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SceneQuery_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SceneQuery_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -231,7 +231,7 @@ SceneQuery_checked_cppflags  += -Wno-invalid-offsetof
 SceneQuery_checked_lflags    := $(SceneQuery_custom_lflags)
 SceneQuery_checked_lflags    += $(addprefix -L, $(SceneQuery_checked_lpaths))
 SceneQuery_checked_lflags    += -Wl,--start-group $(addprefix -l, $(SceneQuery_checked_libraries)) -Wl,--end-group
-SceneQuery_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_checked_objsdir  = $(OBJS_DIR)/SceneQuery_checked
 SceneQuery_checked_cpp_o    = $(addprefix $(SceneQuery_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SceneQuery_cppfiles)))))
 SceneQuery_checked_cc_o    = $(addprefix $(SceneQuery_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SceneQuery_ccfiles)))))
@@ -287,8 +287,8 @@ $(SceneQuery_checked_c_o): $(SceneQuery_checked_objsdir)/%.o:
 	  rm -f $(SceneQuery_checked_DEPDIR).d
 
 SceneQuery_profile_hpaths    := 
-SceneQuery_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SceneQuery_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SceneQuery_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SceneQuery_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SceneQuery_profile_hpaths    += ./../../Common/include
 SceneQuery_profile_hpaths    += ./../../../../PxShared/include
 SceneQuery_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -333,7 +333,7 @@ SceneQuery_profile_defines   += PX_PHYSX_STATIC_LIB
 SceneQuery_profile_defines   += NDEBUG
 SceneQuery_profile_defines   += PX_PROFILE=1
 SceneQuery_profile_defines   += PX_SUPPORT_PVD=1
-SceneQuery_profile_defines   += PX_NVTX=1
+SceneQuery_profile_defines   += PX_NVTX=0
 SceneQuery_profile_libraries := 
 SceneQuery_profile_common_cflags	:= $(SceneQuery_custom_cflags)
 SceneQuery_profile_common_cflags    += -MMD
@@ -341,7 +341,7 @@ SceneQuery_profile_common_cflags    += $(addprefix -D, $(SceneQuery_profile_defi
 SceneQuery_profile_common_cflags    += $(addprefix -I, $(SceneQuery_profile_hpaths))
 SceneQuery_profile_common_cflags  += -Werror
 SceneQuery_profile_common_cflags  += -fpic -fno-exceptions
-SceneQuery_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SceneQuery_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SceneQuery_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -357,7 +357,7 @@ SceneQuery_profile_cppflags  += -Wno-invalid-offsetof
 SceneQuery_profile_lflags    := $(SceneQuery_custom_lflags)
 SceneQuery_profile_lflags    += $(addprefix -L, $(SceneQuery_profile_lpaths))
 SceneQuery_profile_lflags    += -Wl,--start-group $(addprefix -l, $(SceneQuery_profile_libraries)) -Wl,--end-group
-SceneQuery_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_profile_objsdir  = $(OBJS_DIR)/SceneQuery_profile
 SceneQuery_profile_cpp_o    = $(addprefix $(SceneQuery_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SceneQuery_cppfiles)))))
 SceneQuery_profile_cc_o    = $(addprefix $(SceneQuery_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SceneQuery_ccfiles)))))
@@ -413,8 +413,8 @@ $(SceneQuery_profile_c_o): $(SceneQuery_profile_objsdir)/%.o:
 	  rm -f $(SceneQuery_profile_DEPDIR).d
 
 SceneQuery_release_hpaths    := 
-SceneQuery_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SceneQuery_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SceneQuery_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SceneQuery_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SceneQuery_release_hpaths    += ./../../Common/include
 SceneQuery_release_hpaths    += ./../../../../PxShared/include
 SceneQuery_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -465,7 +465,7 @@ SceneQuery_release_common_cflags    += $(addprefix -D, $(SceneQuery_release_defi
 SceneQuery_release_common_cflags    += $(addprefix -I, $(SceneQuery_release_hpaths))
 SceneQuery_release_common_cflags  += -Werror
 SceneQuery_release_common_cflags  += -fpic -fno-exceptions
-SceneQuery_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SceneQuery_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SceneQuery_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -481,7 +481,7 @@ SceneQuery_release_cppflags  += -Wno-invalid-offsetof
 SceneQuery_release_lflags    := $(SceneQuery_custom_lflags)
 SceneQuery_release_lflags    += $(addprefix -L, $(SceneQuery_release_lpaths))
 SceneQuery_release_lflags    += -Wl,--start-group $(addprefix -l, $(SceneQuery_release_libraries)) -Wl,--end-group
-SceneQuery_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SceneQuery_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SceneQuery_release_objsdir  = $(OBJS_DIR)/SceneQuery_release
 SceneQuery_release_cpp_o    = $(addprefix $(SceneQuery_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SceneQuery_cppfiles)))))
 SceneQuery_release_cc_o    = $(addprefix $(SceneQuery_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SceneQuery_ccfiles)))))

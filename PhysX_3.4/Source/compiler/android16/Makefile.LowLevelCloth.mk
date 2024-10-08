@@ -46,8 +46,11 @@ LowLevelCloth_debug_hpaths    += ./../../../Include/common
 LowLevelCloth_debug_hpaths    += ./../../Common/src
 LowLevelCloth_debug_hpaths    += ./../../LowLevelCloth/include
 LowLevelCloth_debug_hpaths    += ./../../LowLevelCloth/src
-LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+#LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+#LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelCloth_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
+
 LowLevelCloth_debug_lpaths    := 
 LowLevelCloth_debug_defines   := $(LowLevelCloth_custom_defines)
 LowLevelCloth_debug_defines   += ANDROID
@@ -62,7 +65,7 @@ LowLevelCloth_debug_defines   += _DEBUG
 LowLevelCloth_debug_defines   += PX_DEBUG=1
 LowLevelCloth_debug_defines   += PX_CHECKED=1
 LowLevelCloth_debug_defines   += PX_SUPPORT_PVD=1
-LowLevelCloth_debug_defines   += PX_NVTX=1
+LowLevelCloth_debug_defines   += PX_NVTX=0
 LowLevelCloth_debug_libraries := 
 LowLevelCloth_debug_common_cflags	:= $(LowLevelCloth_custom_cflags)
 LowLevelCloth_debug_common_cflags    += -MMD
@@ -70,7 +73,8 @@ LowLevelCloth_debug_common_cflags    += $(addprefix -D, $(LowLevelCloth_debug_de
 LowLevelCloth_debug_common_cflags    += $(addprefix -I, $(LowLevelCloth_debug_hpaths))
 LowLevelCloth_debug_common_cflags  += -Werror
 LowLevelCloth_debug_common_cflags  += -fpic -fno-exceptions
-LowLevelCloth_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelCloth_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelCloth_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelCloth_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelCloth_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -84,7 +88,8 @@ LowLevelCloth_debug_cppflags  += -Wno-invalid-offsetof
 LowLevelCloth_debug_lflags    := $(LowLevelCloth_custom_lflags)
 LowLevelCloth_debug_lflags    += $(addprefix -L, $(LowLevelCloth_debug_lpaths))
 LowLevelCloth_debug_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelCloth_debug_libraries)) -Wl,--end-group
-LowLevelCloth_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+#LowLevelCloth_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
+LowLevelCloth_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_debug_objsdir  = $(OBJS_DIR)/LowLevelCloth_debug
 LowLevelCloth_debug_cpp_o    = $(addprefix $(LowLevelCloth_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelCloth_cppfiles)))))
 LowLevelCloth_debug_cc_o    = $(addprefix $(LowLevelCloth_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelCloth_ccfiles)))))
@@ -150,8 +155,8 @@ LowLevelCloth_checked_hpaths    += ./../../../Include/common
 LowLevelCloth_checked_hpaths    += ./../../Common/src
 LowLevelCloth_checked_hpaths    += ./../../LowLevelCloth/include
 LowLevelCloth_checked_hpaths    += ./../../LowLevelCloth/src
-LowLevelCloth_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelCloth_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelCloth_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelCloth_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelCloth_checked_lpaths    := 
 LowLevelCloth_checked_defines   := $(LowLevelCloth_custom_defines)
 LowLevelCloth_checked_defines   += ANDROID
@@ -165,7 +170,7 @@ LowLevelCloth_checked_defines   += PX_PHYSX_STATIC_LIB
 LowLevelCloth_checked_defines   += NDEBUG
 LowLevelCloth_checked_defines   += PX_CHECKED=1
 LowLevelCloth_checked_defines   += PX_SUPPORT_PVD=1
-LowLevelCloth_checked_defines   += PX_NVTX=1
+LowLevelCloth_checked_defines   += PX_NVTX=0
 LowLevelCloth_checked_libraries := 
 LowLevelCloth_checked_common_cflags	:= $(LowLevelCloth_custom_cflags)
 LowLevelCloth_checked_common_cflags    += -MMD
@@ -173,7 +178,7 @@ LowLevelCloth_checked_common_cflags    += $(addprefix -D, $(LowLevelCloth_checke
 LowLevelCloth_checked_common_cflags    += $(addprefix -I, $(LowLevelCloth_checked_hpaths))
 LowLevelCloth_checked_common_cflags  += -Werror
 LowLevelCloth_checked_common_cflags  += -fpic -fno-exceptions
-LowLevelCloth_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelCloth_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelCloth_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -189,7 +194,7 @@ LowLevelCloth_checked_cppflags  += -Wno-invalid-offsetof
 LowLevelCloth_checked_lflags    := $(LowLevelCloth_custom_lflags)
 LowLevelCloth_checked_lflags    += $(addprefix -L, $(LowLevelCloth_checked_lpaths))
 LowLevelCloth_checked_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelCloth_checked_libraries)) -Wl,--end-group
-LowLevelCloth_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_checked_objsdir  = $(OBJS_DIR)/LowLevelCloth_checked
 LowLevelCloth_checked_cpp_o    = $(addprefix $(LowLevelCloth_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelCloth_cppfiles)))))
 LowLevelCloth_checked_cc_o    = $(addprefix $(LowLevelCloth_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelCloth_ccfiles)))))
@@ -255,8 +260,8 @@ LowLevelCloth_profile_hpaths    += ./../../../Include/common
 LowLevelCloth_profile_hpaths    += ./../../Common/src
 LowLevelCloth_profile_hpaths    += ./../../LowLevelCloth/include
 LowLevelCloth_profile_hpaths    += ./../../LowLevelCloth/src
-LowLevelCloth_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelCloth_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelCloth_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelCloth_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelCloth_profile_lpaths    := 
 LowLevelCloth_profile_defines   := $(LowLevelCloth_custom_defines)
 LowLevelCloth_profile_defines   += ANDROID
@@ -270,7 +275,7 @@ LowLevelCloth_profile_defines   += PX_PHYSX_STATIC_LIB
 LowLevelCloth_profile_defines   += NDEBUG
 LowLevelCloth_profile_defines   += PX_PROFILE=1
 LowLevelCloth_profile_defines   += PX_SUPPORT_PVD=1
-LowLevelCloth_profile_defines   += PX_NVTX=1
+LowLevelCloth_profile_defines   += PX_NVTX=0
 LowLevelCloth_profile_libraries := 
 LowLevelCloth_profile_common_cflags	:= $(LowLevelCloth_custom_cflags)
 LowLevelCloth_profile_common_cflags    += -MMD
@@ -278,7 +283,7 @@ LowLevelCloth_profile_common_cflags    += $(addprefix -D, $(LowLevelCloth_profil
 LowLevelCloth_profile_common_cflags    += $(addprefix -I, $(LowLevelCloth_profile_hpaths))
 LowLevelCloth_profile_common_cflags  += -Werror
 LowLevelCloth_profile_common_cflags  += -fpic -fno-exceptions
-LowLevelCloth_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelCloth_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelCloth_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -294,7 +299,7 @@ LowLevelCloth_profile_cppflags  += -Wno-invalid-offsetof
 LowLevelCloth_profile_lflags    := $(LowLevelCloth_custom_lflags)
 LowLevelCloth_profile_lflags    += $(addprefix -L, $(LowLevelCloth_profile_lpaths))
 LowLevelCloth_profile_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelCloth_profile_libraries)) -Wl,--end-group
-LowLevelCloth_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_profile_objsdir  = $(OBJS_DIR)/LowLevelCloth_profile
 LowLevelCloth_profile_cpp_o    = $(addprefix $(LowLevelCloth_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelCloth_cppfiles)))))
 LowLevelCloth_profile_cc_o    = $(addprefix $(LowLevelCloth_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelCloth_ccfiles)))))
@@ -360,8 +365,8 @@ LowLevelCloth_release_hpaths    += ./../../../Include/common
 LowLevelCloth_release_hpaths    += ./../../Common/src
 LowLevelCloth_release_hpaths    += ./../../LowLevelCloth/include
 LowLevelCloth_release_hpaths    += ./../../LowLevelCloth/src
-LowLevelCloth_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-LowLevelCloth_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+LowLevelCloth_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+LowLevelCloth_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 LowLevelCloth_release_lpaths    := 
 LowLevelCloth_release_defines   := $(LowLevelCloth_custom_defines)
 LowLevelCloth_release_defines   += ANDROID
@@ -381,7 +386,7 @@ LowLevelCloth_release_common_cflags    += $(addprefix -D, $(LowLevelCloth_releas
 LowLevelCloth_release_common_cflags    += $(addprefix -I, $(LowLevelCloth_release_hpaths))
 LowLevelCloth_release_common_cflags  += -Werror
 LowLevelCloth_release_common_cflags  += -fpic -fno-exceptions
-LowLevelCloth_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 LowLevelCloth_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 LowLevelCloth_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -397,7 +402,7 @@ LowLevelCloth_release_cppflags  += -Wno-invalid-offsetof
 LowLevelCloth_release_lflags    := $(LowLevelCloth_custom_lflags)
 LowLevelCloth_release_lflags    += $(addprefix -L, $(LowLevelCloth_release_lpaths))
 LowLevelCloth_release_lflags    += -Wl,--start-group $(addprefix -l, $(LowLevelCloth_release_libraries)) -Wl,--end-group
-LowLevelCloth_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+LowLevelCloth_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 LowLevelCloth_release_objsdir  = $(OBJS_DIR)/LowLevelCloth_release
 LowLevelCloth_release_cpp_o    = $(addprefix $(LowLevelCloth_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(LowLevelCloth_cppfiles)))))
 LowLevelCloth_release_cc_o    = $(addprefix $(LowLevelCloth_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(LowLevelCloth_ccfiles)))))

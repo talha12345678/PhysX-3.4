@@ -66,8 +66,8 @@ SimulationController_c_release_dep      = $(addprefix $(DEPSDIR)/SimulationContr
 SimulationController_release_dep      = $(SimulationController_cpp_release_dep) $(SimulationController_cc_release_dep) $(SimulationController_c_release_dep)
 -include $(SimulationController_release_dep)
 SimulationController_debug_hpaths    := 
-SimulationController_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SimulationController_debug_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SimulationController_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SimulationController_debug_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SimulationController_debug_hpaths    += ./../../Common/include
 SimulationController_debug_hpaths    += ./../../../../PxShared/include
 SimulationController_debug_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -125,7 +125,7 @@ SimulationController_debug_defines   += _DEBUG
 SimulationController_debug_defines   += PX_DEBUG=1
 SimulationController_debug_defines   += PX_CHECKED=1
 SimulationController_debug_defines   += PX_SUPPORT_PVD=1
-SimulationController_debug_defines   += PX_NVTX=1
+SimulationController_debug_defines   += PX_NVTX=0
 SimulationController_debug_libraries := 
 SimulationController_debug_common_cflags	:= $(SimulationController_custom_cflags)
 SimulationController_debug_common_cflags    += -MMD
@@ -133,7 +133,7 @@ SimulationController_debug_common_cflags    += $(addprefix -D, $(SimulationContr
 SimulationController_debug_common_cflags    += $(addprefix -I, $(SimulationController_debug_hpaths))
 SimulationController_debug_common_cflags  += -Werror
 SimulationController_debug_common_cflags  += -fpic -fno-exceptions
-SimulationController_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_debug_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SimulationController_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SimulationController_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -147,7 +147,7 @@ SimulationController_debug_cppflags  += -Wno-invalid-offsetof
 SimulationController_debug_lflags    := $(SimulationController_custom_lflags)
 SimulationController_debug_lflags    += $(addprefix -L, $(SimulationController_debug_lpaths))
 SimulationController_debug_lflags    += -Wl,--start-group $(addprefix -l, $(SimulationController_debug_libraries)) -Wl,--end-group
-SimulationController_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_debug_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_debug_objsdir  = $(OBJS_DIR)/SimulationController_debug
 SimulationController_debug_cpp_o    = $(addprefix $(SimulationController_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SimulationController_cppfiles)))))
 SimulationController_debug_cc_o    = $(addprefix $(SimulationController_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SimulationController_ccfiles)))))
@@ -203,8 +203,8 @@ $(SimulationController_debug_c_o): $(SimulationController_debug_objsdir)/%.o:
 	  rm -f $(SimulationController_debug_DEPDIR).d
 
 SimulationController_checked_hpaths    := 
-SimulationController_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SimulationController_checked_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SimulationController_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SimulationController_checked_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SimulationController_checked_hpaths    += ./../../Common/include
 SimulationController_checked_hpaths    += ./../../../../PxShared/include
 SimulationController_checked_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -261,7 +261,7 @@ SimulationController_checked_defines   += PX_PHYSX_STATIC_LIB
 SimulationController_checked_defines   += NDEBUG
 SimulationController_checked_defines   += PX_CHECKED=1
 SimulationController_checked_defines   += PX_SUPPORT_PVD=1
-SimulationController_checked_defines   += PX_NVTX=1
+SimulationController_checked_defines   += PX_NVTX=0
 SimulationController_checked_libraries := 
 SimulationController_checked_common_cflags	:= $(SimulationController_custom_cflags)
 SimulationController_checked_common_cflags    += -MMD
@@ -269,7 +269,7 @@ SimulationController_checked_common_cflags    += $(addprefix -D, $(SimulationCon
 SimulationController_checked_common_cflags    += $(addprefix -I, $(SimulationController_checked_hpaths))
 SimulationController_checked_common_cflags  += -Werror
 SimulationController_checked_common_cflags  += -fpic -fno-exceptions
-SimulationController_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_checked_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SimulationController_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SimulationController_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -285,7 +285,7 @@ SimulationController_checked_cppflags  += -Wno-invalid-offsetof
 SimulationController_checked_lflags    := $(SimulationController_custom_lflags)
 SimulationController_checked_lflags    += $(addprefix -L, $(SimulationController_checked_lpaths))
 SimulationController_checked_lflags    += -Wl,--start-group $(addprefix -l, $(SimulationController_checked_libraries)) -Wl,--end-group
-SimulationController_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_checked_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_checked_objsdir  = $(OBJS_DIR)/SimulationController_checked
 SimulationController_checked_cpp_o    = $(addprefix $(SimulationController_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SimulationController_cppfiles)))))
 SimulationController_checked_cc_o    = $(addprefix $(SimulationController_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SimulationController_ccfiles)))))
@@ -341,8 +341,8 @@ $(SimulationController_checked_c_o): $(SimulationController_checked_objsdir)/%.o
 	  rm -f $(SimulationController_checked_DEPDIR).d
 
 SimulationController_profile_hpaths    := 
-SimulationController_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SimulationController_profile_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SimulationController_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SimulationController_profile_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SimulationController_profile_hpaths    += ./../../Common/include
 SimulationController_profile_hpaths    += ./../../../../PxShared/include
 SimulationController_profile_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -399,7 +399,7 @@ SimulationController_profile_defines   += PX_PHYSX_STATIC_LIB
 SimulationController_profile_defines   += NDEBUG
 SimulationController_profile_defines   += PX_PROFILE=1
 SimulationController_profile_defines   += PX_SUPPORT_PVD=1
-SimulationController_profile_defines   += PX_NVTX=1
+SimulationController_profile_defines   += PX_NVTX=0
 SimulationController_profile_libraries := 
 SimulationController_profile_common_cflags	:= $(SimulationController_custom_cflags)
 SimulationController_profile_common_cflags    += -MMD
@@ -407,7 +407,7 @@ SimulationController_profile_common_cflags    += $(addprefix -D, $(SimulationCon
 SimulationController_profile_common_cflags    += $(addprefix -I, $(SimulationController_profile_hpaths))
 SimulationController_profile_common_cflags  += -Werror
 SimulationController_profile_common_cflags  += -fpic -fno-exceptions
-SimulationController_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_profile_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SimulationController_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SimulationController_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -423,7 +423,7 @@ SimulationController_profile_cppflags  += -Wno-invalid-offsetof
 SimulationController_profile_lflags    := $(SimulationController_custom_lflags)
 SimulationController_profile_lflags    += $(addprefix -L, $(SimulationController_profile_lpaths))
 SimulationController_profile_lflags    += -Wl,--start-group $(addprefix -l, $(SimulationController_profile_libraries)) -Wl,--end-group
-SimulationController_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_profile_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_profile_objsdir  = $(OBJS_DIR)/SimulationController_profile
 SimulationController_profile_cpp_o    = $(addprefix $(SimulationController_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SimulationController_cppfiles)))))
 SimulationController_profile_cc_o    = $(addprefix $(SimulationController_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SimulationController_ccfiles)))))
@@ -479,8 +479,8 @@ $(SimulationController_profile_c_o): $(SimulationController_profile_objsdir)/%.o
 	  rm -f $(SimulationController_profile_DEPDIR).d
 
 SimulationController_release_hpaths    := 
-SimulationController_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-SimulationController_release_hpaths    += ./../../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+SimulationController_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+SimulationController_release_hpaths    += ./../../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 SimulationController_release_hpaths    += ./../../Common/include
 SimulationController_release_hpaths    += ./../../../../PxShared/include
 SimulationController_release_hpaths    += ./../../../../PxShared/src/foundation/include
@@ -543,7 +543,7 @@ SimulationController_release_common_cflags    += $(addprefix -D, $(SimulationCon
 SimulationController_release_common_cflags    += $(addprefix -I, $(SimulationController_release_hpaths))
 SimulationController_release_common_cflags  += -Werror
 SimulationController_release_common_cflags  += -fpic -fno-exceptions
-SimulationController_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_release_common_cflags  += -isysroot ../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 SimulationController_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 SimulationController_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -559,7 +559,7 @@ SimulationController_release_cppflags  += -Wno-invalid-offsetof
 SimulationController_release_lflags    := $(SimulationController_custom_lflags)
 SimulationController_release_lflags    += $(addprefix -L, $(SimulationController_release_lpaths))
 SimulationController_release_lflags    += -Wl,--start-group $(addprefix -l, $(SimulationController_release_libraries)) -Wl,--end-group
-SimulationController_release_lflags  += --sysroot=../../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+SimulationController_release_lflags  += --sysroot=../../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 SimulationController_release_objsdir  = $(OBJS_DIR)/SimulationController_release
 SimulationController_release_cpp_o    = $(addprefix $(SimulationController_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(SimulationController_cppfiles)))))
 SimulationController_release_cc_o    = $(addprefix $(SimulationController_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(SimulationController_ccfiles)))))
