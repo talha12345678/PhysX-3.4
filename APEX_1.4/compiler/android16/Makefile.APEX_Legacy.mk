@@ -292,7 +292,7 @@ APEX_Legacy_debug_defines   += PX_CHECKED
 APEX_Legacy_debug_defines   += PX_PROFILE
 APEX_Legacy_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Legacy_debug_defines   += PHYSX_PROFILE_SDK
-APEX_Legacy_debug_defines   += PX_NVTX=1
+APEX_Legacy_debug_defines   += PX_NVTX=0
 APEX_Legacy_debug_libraries := 
 APEX_Legacy_debug_libraries += PxFoundationDEBUG
 APEX_Legacy_debug_libraries += NvParameterizedDEBUG
@@ -600,7 +600,7 @@ APEX_Legacy_profile_defines   += NDEBUG
 APEX_Legacy_profile_defines   += PX_PROFILE
 APEX_Legacy_profile_defines   += PHYSX_PROFILE_SDK
 APEX_Legacy_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-APEX_Legacy_profile_defines   += PX_NVTX=1
+APEX_Legacy_profile_defines   += PX_NVTX=0
 APEX_Legacy_profile_libraries := 
 APEX_Legacy_profile_libraries += PxFoundationPROFILE
 APEX_Legacy_profile_libraries += NvParameterizedPROFILE
@@ -756,7 +756,7 @@ APEX_Legacy_checked_defines   += PX_CHECKED
 APEX_Legacy_checked_defines   += PHYSX_PROFILE_SDK
 APEX_Legacy_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Legacy_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-APEX_Legacy_checked_defines   += PX_NVTX=1
+APEX_Legacy_checked_defines   += PX_NVTX=0
 APEX_Legacy_checked_libraries := 
 APEX_Legacy_checked_libraries += PxFoundationCHECKED
 APEX_Legacy_checked_libraries += NvParameterizedCHECKED

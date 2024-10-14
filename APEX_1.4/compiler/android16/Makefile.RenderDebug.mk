@@ -65,7 +65,7 @@ RenderDebug_debug_defines   += PX_CHECKED
 RenderDebug_debug_defines   += PX_PROFILE
 RenderDebug_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 RenderDebug_debug_defines   += PHYSX_PROFILE_SDK
-RenderDebug_debug_defines   += PX_NVTX=1
+RenderDebug_debug_defines   += PX_NVTX=0
 RenderDebug_debug_libraries := 
 RenderDebug_debug_common_cflags	:= $(RenderDebug_custom_cflags)
 RenderDebug_debug_common_cflags    += $(addprefix -D, $(RenderDebug_debug_defines))
@@ -281,7 +281,7 @@ RenderDebug_profile_defines   += NDEBUG
 RenderDebug_profile_defines   += PX_PROFILE
 RenderDebug_profile_defines   += PHYSX_PROFILE_SDK
 RenderDebug_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-RenderDebug_profile_defines   += PX_NVTX=1
+RenderDebug_profile_defines   += PX_NVTX=0
 RenderDebug_profile_libraries := 
 RenderDebug_profile_common_cflags	:= $(RenderDebug_custom_cflags)
 RenderDebug_profile_common_cflags    += $(addprefix -D, $(RenderDebug_profile_defines))
@@ -391,7 +391,7 @@ RenderDebug_checked_defines   += PX_CHECKED
 RenderDebug_checked_defines   += PHYSX_PROFILE_SDK
 RenderDebug_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 RenderDebug_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-RenderDebug_checked_defines   += PX_NVTX=1
+RenderDebug_checked_defines   += PX_NVTX=0
 RenderDebug_checked_libraries := 
 RenderDebug_checked_common_cflags	:= $(RenderDebug_custom_cflags)
 RenderDebug_checked_common_cflags    += $(addprefix -D, $(RenderDebug_checked_defines))

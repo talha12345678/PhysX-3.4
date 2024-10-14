@@ -146,7 +146,7 @@ APEX_Destructible_debug_defines   += PX_CHECKED
 APEX_Destructible_debug_defines   += PX_PROFILE
 APEX_Destructible_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Destructible_debug_defines   += PHYSX_PROFILE_SDK
-APEX_Destructible_debug_defines   += PX_NVTX=1
+APEX_Destructible_debug_defines   += PX_NVTX=0
 APEX_Destructible_debug_libraries := 
 APEX_Destructible_debug_libraries += PxFoundationDEBUG
 APEX_Destructible_debug_libraries += PsFastXmlDEBUG
@@ -446,7 +446,7 @@ APEX_Destructible_profile_defines   += NDEBUG
 APEX_Destructible_profile_defines   += PX_PROFILE
 APEX_Destructible_profile_defines   += PHYSX_PROFILE_SDK
 APEX_Destructible_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-APEX_Destructible_profile_defines   += PX_NVTX=1
+APEX_Destructible_profile_defines   += PX_NVTX=0
 APEX_Destructible_profile_libraries := 
 APEX_Destructible_profile_libraries += PxFoundationPROFILE
 APEX_Destructible_profile_libraries += PsFastXmlPROFILE
@@ -598,7 +598,7 @@ APEX_Destructible_checked_defines   += PX_CHECKED
 APEX_Destructible_checked_defines   += PHYSX_PROFILE_SDK
 APEX_Destructible_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Destructible_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-APEX_Destructible_checked_defines   += PX_NVTX=1
+APEX_Destructible_checked_defines   += PX_NVTX=0
 APEX_Destructible_checked_libraries := 
 APEX_Destructible_checked_libraries += PxFoundationCHECKED
 APEX_Destructible_checked_libraries += PsFastXmlCHECKED

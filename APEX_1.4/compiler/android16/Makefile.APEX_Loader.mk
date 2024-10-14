@@ -92,7 +92,7 @@ APEX_Loader_debug_defines   += PX_CHECKED
 APEX_Loader_debug_defines   += PX_PROFILE
 APEX_Loader_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Loader_debug_defines   += PHYSX_PROFILE_SDK
-APEX_Loader_debug_defines   += PX_NVTX=1
+APEX_Loader_debug_defines   += PX_NVTX=0
 APEX_Loader_debug_libraries := 
 APEX_Loader_debug_libraries += PxFoundationDEBUG
 APEX_Loader_debug_libraries += PsFastXmlDEBUG
@@ -398,7 +398,7 @@ APEX_Loader_profile_defines   += NDEBUG
 APEX_Loader_profile_defines   += PX_PROFILE
 APEX_Loader_profile_defines   += PHYSX_PROFILE_SDK
 APEX_Loader_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-APEX_Loader_profile_defines   += PX_NVTX=1
+APEX_Loader_profile_defines   += PX_NVTX=0
 APEX_Loader_profile_libraries := 
 APEX_Loader_profile_libraries += PxFoundationPROFILE
 APEX_Loader_profile_libraries += PsFastXmlPROFILE
@@ -553,7 +553,7 @@ APEX_Loader_checked_defines   += PX_CHECKED
 APEX_Loader_checked_defines   += PHYSX_PROFILE_SDK
 APEX_Loader_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 APEX_Loader_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-APEX_Loader_checked_defines   += PX_NVTX=1
+APEX_Loader_checked_defines   += PX_NVTX=0
 APEX_Loader_checked_libraries := 
 APEX_Loader_checked_libraries += PxFoundationCHECKED
 APEX_Loader_checked_libraries += PsFastXmlCHECKED

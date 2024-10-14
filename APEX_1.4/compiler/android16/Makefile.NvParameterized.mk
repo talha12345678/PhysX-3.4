@@ -68,7 +68,7 @@ NvParameterized_debug_defines   += PX_CHECKED
 NvParameterized_debug_defines   += PX_PROFILE
 NvParameterized_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 NvParameterized_debug_defines   += PHYSX_PROFILE_SDK
-NvParameterized_debug_defines   += PX_NVTX=1
+NvParameterized_debug_defines   += PX_NVTX=0
 NvParameterized_debug_libraries := 
 NvParameterized_debug_common_cflags	:= $(NvParameterized_custom_cflags)
 NvParameterized_debug_common_cflags    += $(addprefix -D, $(NvParameterized_debug_defines))
@@ -284,7 +284,7 @@ NvParameterized_profile_defines   += NDEBUG
 NvParameterized_profile_defines   += PX_PROFILE
 NvParameterized_profile_defines   += PHYSX_PROFILE_SDK
 NvParameterized_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-NvParameterized_profile_defines   += PX_NVTX=1
+NvParameterized_profile_defines   += PX_NVTX=0
 NvParameterized_profile_libraries := 
 NvParameterized_profile_common_cflags	:= $(NvParameterized_custom_cflags)
 NvParameterized_profile_common_cflags    += $(addprefix -D, $(NvParameterized_profile_defines))
@@ -394,7 +394,7 @@ NvParameterized_checked_defines   += PX_CHECKED
 NvParameterized_checked_defines   += PHYSX_PROFILE_SDK
 NvParameterized_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 NvParameterized_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-NvParameterized_checked_defines   += PX_NVTX=1
+NvParameterized_checked_defines   += PX_NVTX=0
 NvParameterized_checked_libraries := 
 NvParameterized_checked_common_cflags	:= $(NvParameterized_custom_cflags)
 NvParameterized_checked_common_cflags    += $(addprefix -D, $(NvParameterized_checked_defines))

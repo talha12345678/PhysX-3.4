@@ -3,8 +3,8 @@
 
 #$(info NDKROOT is $(NDKROOT))
 DEPSDIR = .deps
-NDKROOT = ./../../../Externals/android-ndk-r9d
-NDK_BIN_DIR = ./../../../Externals/android-ndk-r9d/toolchains/arm-linux-androideabi-4.8/prebuilt/windows-x86_64/bin
+NDKROOT = ./../../../Externals/android-ndk-r14b
+NDK_BIN_DIR = ./../../../Externals/android-ndk-r14b/toolchains/arm-linux-androideabi-4.8/prebuilt/windows-x86_64/bin
 NDK_PREFIX = arm-linux-androideabi-
 JAVA_HOME  = ./../../../Externals/jdk
 ANT_TOOL = ./../../../Externals/ant/apache-ant-1.8.2/bin/ant

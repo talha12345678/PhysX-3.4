@@ -126,7 +126,7 @@ ApexFramework_debug_defines   += PX_CHECKED
 ApexFramework_debug_defines   += PX_PROFILE
 ApexFramework_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 ApexFramework_debug_defines   += PHYSX_PROFILE_SDK
-ApexFramework_debug_defines   += PX_NVTX=1
+ApexFramework_debug_defines   += PX_NVTX=0
 ApexFramework_debug_libraries := 
 ApexFramework_debug_libraries += PxFoundationDEBUG
 ApexFramework_debug_libraries += NvParameterizedDEBUG
@@ -420,7 +420,7 @@ ApexFramework_profile_defines   += NDEBUG
 ApexFramework_profile_defines   += PX_PROFILE
 ApexFramework_profile_defines   += PHYSX_PROFILE_SDK
 ApexFramework_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-ApexFramework_profile_defines   += PX_NVTX=1
+ApexFramework_profile_defines   += PX_NVTX=0
 ApexFramework_profile_libraries := 
 ApexFramework_profile_libraries += PxFoundationPROFILE
 ApexFramework_profile_libraries += NvParameterizedPROFILE
@@ -569,7 +569,7 @@ ApexFramework_checked_defines   += PX_CHECKED
 ApexFramework_checked_defines   += PHYSX_PROFILE_SDK
 ApexFramework_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 ApexFramework_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-ApexFramework_checked_defines   += PX_NVTX=1
+ApexFramework_checked_defines   += PX_NVTX=0
 ApexFramework_checked_libraries := 
 ApexFramework_checked_libraries += PxFoundationCHECKED
 ApexFramework_checked_libraries += NvParameterizedCHECKED

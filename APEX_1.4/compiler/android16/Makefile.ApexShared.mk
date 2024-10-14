@@ -122,7 +122,7 @@ ApexShared_debug_defines   += PX_CHECKED
 ApexShared_debug_defines   += PX_PROFILE
 ApexShared_debug_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 ApexShared_debug_defines   += PHYSX_PROFILE_SDK
-ApexShared_debug_defines   += PX_NVTX=1
+ApexShared_debug_defines   += PX_NVTX=0
 ApexShared_debug_libraries := 
 ApexShared_debug_common_cflags	:= $(ApexShared_custom_cflags)
 ApexShared_debug_common_cflags    += $(addprefix -D, $(ApexShared_debug_defines))
@@ -414,7 +414,7 @@ ApexShared_profile_defines   += NDEBUG
 ApexShared_profile_defines   += PX_PROFILE
 ApexShared_profile_defines   += PHYSX_PROFILE_SDK
 ApexShared_profile_defines   += PX_SUPPORT_VISUAL_DEBUGGER
-ApexShared_profile_defines   += PX_NVTX=1
+ApexShared_profile_defines   += PX_NVTX=0
 ApexShared_profile_libraries := 
 ApexShared_profile_common_cflags	:= $(ApexShared_custom_cflags)
 ApexShared_profile_common_cflags    += $(addprefix -D, $(ApexShared_profile_defines))
@@ -562,7 +562,7 @@ ApexShared_checked_defines   += PX_CHECKED
 ApexShared_checked_defines   += PHYSX_PROFILE_SDK
 ApexShared_checked_defines   += PX_SUPPORT_VISUAL_DEBUGGER
 ApexShared_checked_defines   += PX_ENABLE_CHECKED_ASSERTS
-ApexShared_checked_defines   += PX_NVTX=1
+ApexShared_checked_defines   += PX_NVTX=0
 ApexShared_checked_libraries := 
 ApexShared_checked_common_cflags	:= $(ApexShared_custom_cflags)
 ApexShared_checked_common_cflags    += $(addprefix -D, $(ApexShared_checked_defines))

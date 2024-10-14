@@ -1,5 +1,5 @@
 
-TARGET_OS   ?= android-16
+TARGET_OS   ?= android-21
 TARGET_ARCH ?= arm
 
 ifeq ($(TARGET_ARCH),arm)
@@ -33,7 +33,14 @@ endif
 ifneq ($(wildcard $(NDKROOT)/toolchains/$(GCC_ARCH)-4.8/*),)
   GCC_VERS      = 4.8
 endif
+ifneq ($(wildcard $(NDKROOT)/toolchains/$(GCC_ARCH)-4.9/*),)
+  GCC_VERS      = 4.9
+endif
+
+
 GCC_LIB_VERS ?= $(GCC_VERS)
+
+
 
 
 HOST_OS:=$(shell uname | tr A-Z a-z)
@@ -44,6 +51,7 @@ endif
 
 ifeq ($(HOST_OS),cygwin)
   TOOLCHAIN_DIR      = $(NDKROOT)/toolchains/$(GCC_ARCH)-$(GCC_VERS)/prebuilt/windows-x86_64
+  $(info GCC_VERS is $(GCC_VERS))
 else
   ifneq (,$(findstring msys,$(HOST_OS)))
     TOOLCHAIN_DIR      = $(NDKROOT)/toolchains/$(GCC_ARCH)-$(GCC_VERS)/prebuilt/windows

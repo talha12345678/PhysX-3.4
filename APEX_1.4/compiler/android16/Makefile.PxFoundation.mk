@@ -42,8 +42,8 @@ PxFoundation_profile_dep      = $(PxFoundation_cpp_profile_dep) $(PxFoundation_c
 PxFoundation_debug_hpaths    := 
 PxFoundation_debug_hpaths    += ./../../../PxShared/include
 PxFoundation_debug_hpaths    += ./../../../PxShared/src/foundation/include
-PxFoundation_debug_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PxFoundation_debug_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PxFoundation_debug_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PxFoundation_debug_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PxFoundation_debug_lpaths    := 
 PxFoundation_debug_defines   := $(PxFoundation_custom_defines)
 PxFoundation_debug_defines   += ANDROID
@@ -57,14 +57,14 @@ PxFoundation_debug_defines   += PxShared_STATIC_LIB
 PxFoundation_debug_defines   += _DEBUG
 PxFoundation_debug_defines   += PX_DEBUG=1
 PxFoundation_debug_defines   += PX_CHECKED=1
-PxFoundation_debug_defines   += PX_NVTX=1
+PxFoundation_debug_defines   += PX_NVTX=0
 PxFoundation_debug_libraries := 
 PxFoundation_debug_common_cflags	:= $(PxFoundation_custom_cflags)
 PxFoundation_debug_common_cflags    += $(addprefix -D, $(PxFoundation_debug_defines))
 PxFoundation_debug_common_cflags    += $(addprefix -I, $(PxFoundation_debug_hpaths))
 PxFoundation_debug_common_cflags  += -Werror
 PxFoundation_debug_common_cflags  += -fpic -fno-exceptions
-PxFoundation_debug_common_cflags  += -isysroot ./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_debug_common_cflags  += -isysroot ./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_debug_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PxFoundation_debug_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PxFoundation_debug_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -78,7 +78,7 @@ PxFoundation_debug_cppflags  += -Wno-invalid-offsetof
 PxFoundation_debug_lflags    := $(PxFoundation_custom_lflags)
 PxFoundation_debug_lflags    += $(addprefix -L, $(PxFoundation_debug_lpaths))
 PxFoundation_debug_lflags    += -Wl,--start-group $(addprefix -l, $(PxFoundation_debug_libraries)) -Wl,--end-group
-PxFoundation_debug_lflags  += --sysroot=./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_debug_lflags  += --sysroot=./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_debug_objsdir  = $(OBJS_DIR)/PxFoundation_debug
 PxFoundation_debug_cpp_o    = $(addprefix $(PxFoundation_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PxFoundation_cppfiles)))))
 PxFoundation_debug_cc_o    = $(addprefix $(PxFoundation_debug_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PxFoundation_ccfiles)))))
@@ -139,8 +139,8 @@ $(PxFoundation_debug_c_o): $(PxFoundation_debug_objsdir)/%.o:
 PxFoundation_release_hpaths    := 
 PxFoundation_release_hpaths    += ./../../../PxShared/include
 PxFoundation_release_hpaths    += ./../../../PxShared/src/foundation/include
-PxFoundation_release_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PxFoundation_release_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PxFoundation_release_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PxFoundation_release_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PxFoundation_release_lpaths    := 
 PxFoundation_release_defines   := $(PxFoundation_custom_defines)
 PxFoundation_release_defines   += ANDROID
@@ -158,7 +158,7 @@ PxFoundation_release_common_cflags    += $(addprefix -D, $(PxFoundation_release_
 PxFoundation_release_common_cflags    += $(addprefix -I, $(PxFoundation_release_hpaths))
 PxFoundation_release_common_cflags  += -Werror
 PxFoundation_release_common_cflags  += -fpic -fno-exceptions
-PxFoundation_release_common_cflags  += -isysroot ./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_release_common_cflags  += -isysroot ./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_release_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PxFoundation_release_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PxFoundation_release_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -174,7 +174,7 @@ PxFoundation_release_cppflags  += -Wno-invalid-offsetof
 PxFoundation_release_lflags    := $(PxFoundation_custom_lflags)
 PxFoundation_release_lflags    += $(addprefix -L, $(PxFoundation_release_lpaths))
 PxFoundation_release_lflags    += -Wl,--start-group $(addprefix -l, $(PxFoundation_release_libraries)) -Wl,--end-group
-PxFoundation_release_lflags  += --sysroot=./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_release_lflags  += --sysroot=./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_release_objsdir  = $(OBJS_DIR)/PxFoundation_release
 PxFoundation_release_cpp_o    = $(addprefix $(PxFoundation_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PxFoundation_cppfiles)))))
 PxFoundation_release_cc_o    = $(addprefix $(PxFoundation_release_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PxFoundation_ccfiles)))))
@@ -235,8 +235,8 @@ $(PxFoundation_release_c_o): $(PxFoundation_release_objsdir)/%.o:
 PxFoundation_checked_hpaths    := 
 PxFoundation_checked_hpaths    += ./../../../PxShared/include
 PxFoundation_checked_hpaths    += ./../../../PxShared/src/foundation/include
-PxFoundation_checked_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PxFoundation_checked_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PxFoundation_checked_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PxFoundation_checked_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PxFoundation_checked_lpaths    := 
 PxFoundation_checked_defines   := $(PxFoundation_custom_defines)
 PxFoundation_checked_defines   += ANDROID
@@ -249,14 +249,14 @@ PxFoundation_checked_defines   += __ARM_ARCH_5TE__
 PxFoundation_checked_defines   += PxShared_STATIC_LIB
 PxFoundation_checked_defines   += NDEBUG
 PxFoundation_checked_defines   += PX_CHECKED=1
-PxFoundation_checked_defines   += PX_NVTX=1
+PxFoundation_checked_defines   += PX_NVTX=0
 PxFoundation_checked_libraries := 
 PxFoundation_checked_common_cflags	:= $(PxFoundation_custom_cflags)
 PxFoundation_checked_common_cflags    += $(addprefix -D, $(PxFoundation_checked_defines))
 PxFoundation_checked_common_cflags    += $(addprefix -I, $(PxFoundation_checked_hpaths))
 PxFoundation_checked_common_cflags  += -Werror
 PxFoundation_checked_common_cflags  += -fpic -fno-exceptions
-PxFoundation_checked_common_cflags  += -isysroot ./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_checked_common_cflags  += -isysroot ./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_checked_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PxFoundation_checked_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PxFoundation_checked_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -272,7 +272,7 @@ PxFoundation_checked_cppflags  += -Wno-invalid-offsetof
 PxFoundation_checked_lflags    := $(PxFoundation_custom_lflags)
 PxFoundation_checked_lflags    += $(addprefix -L, $(PxFoundation_checked_lpaths))
 PxFoundation_checked_lflags    += -Wl,--start-group $(addprefix -l, $(PxFoundation_checked_libraries)) -Wl,--end-group
-PxFoundation_checked_lflags  += --sysroot=./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_checked_lflags  += --sysroot=./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_checked_objsdir  = $(OBJS_DIR)/PxFoundation_checked
 PxFoundation_checked_cpp_o    = $(addprefix $(PxFoundation_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PxFoundation_cppfiles)))))
 PxFoundation_checked_cc_o    = $(addprefix $(PxFoundation_checked_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PxFoundation_ccfiles)))))
@@ -333,8 +333,8 @@ $(PxFoundation_checked_c_o): $(PxFoundation_checked_objsdir)/%.o:
 PxFoundation_profile_hpaths    := 
 PxFoundation_profile_hpaths    += ./../../../PxShared/include
 PxFoundation_profile_hpaths    += ./../../../PxShared/src/foundation/include
-PxFoundation_profile_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/include
-PxFoundation_profile_hpaths    += ./../../../Externals/android-ndk-r9d/sources/cxx-stl/gnu-libstdc++/4.8/libs/armeabi-v7a/include
+PxFoundation_profile_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/include
+PxFoundation_profile_hpaths    += ./../../../Externals/android-ndk-r14b/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a/include
 PxFoundation_profile_lpaths    := 
 PxFoundation_profile_defines   := $(PxFoundation_custom_defines)
 PxFoundation_profile_defines   += ANDROID
@@ -347,14 +347,14 @@ PxFoundation_profile_defines   += __ARM_ARCH_5TE__
 PxFoundation_profile_defines   += PxShared_STATIC_LIB
 PxFoundation_profile_defines   += NDEBUG
 PxFoundation_profile_defines   += PX_PROFILE=1
-PxFoundation_profile_defines   += PX_NVTX=1
+PxFoundation_profile_defines   += PX_NVTX=0
 PxFoundation_profile_libraries := 
 PxFoundation_profile_common_cflags	:= $(PxFoundation_custom_cflags)
 PxFoundation_profile_common_cflags    += $(addprefix -D, $(PxFoundation_profile_defines))
 PxFoundation_profile_common_cflags    += $(addprefix -I, $(PxFoundation_profile_hpaths))
 PxFoundation_profile_common_cflags  += -Werror
 PxFoundation_profile_common_cflags  += -fpic -fno-exceptions
-PxFoundation_profile_common_cflags  += -isysroot ./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_profile_common_cflags  += -isysroot ./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_profile_common_cflags  += -march=armv7-a -mfpu=neon -marm -mfloat-abi=softfp -mthumb-interwork
 PxFoundation_profile_common_cflags  += -Wall -Wextra -Wpedantic -Wstrict-aliasing=2
 PxFoundation_profile_common_cflags  += -Wno-maybe-uninitialized -Wno-unused-variable
@@ -370,7 +370,7 @@ PxFoundation_profile_cppflags  += -Wno-invalid-offsetof
 PxFoundation_profile_lflags    := $(PxFoundation_custom_lflags)
 PxFoundation_profile_lflags    += $(addprefix -L, $(PxFoundation_profile_lpaths))
 PxFoundation_profile_lflags    += -Wl,--start-group $(addprefix -l, $(PxFoundation_profile_libraries)) -Wl,--end-group
-PxFoundation_profile_lflags  += --sysroot=./../../../Externals/android-ndk-r9d/platforms/android-16/arch-arm
+PxFoundation_profile_lflags  += --sysroot=./../../../Externals/android-ndk-r14b/platforms/android-21/arch-arm
 PxFoundation_profile_objsdir  = $(OBJS_DIR)/PxFoundation_profile
 PxFoundation_profile_cpp_o    = $(addprefix $(PxFoundation_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cpp, %.cpp.o, $(PxFoundation_cppfiles)))))
 PxFoundation_profile_cc_o    = $(addprefix $(PxFoundation_profile_objsdir)/, $(subst ./, , $(subst ../, , $(patsubst %.cc, %.cc.o, $(PxFoundation_ccfiles)))))
