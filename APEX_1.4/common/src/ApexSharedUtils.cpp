@@ -1,30 +1,12 @@
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions
-// are met:
-//  * Redistributions of source code must retain the above copyright
-//    notice, this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above copyright
-//    notice, this list of conditions and the following disclaimer in the
-//    documentation and/or other materials provided with the distribution.
-//  * Neither the name of NVIDIA CORPORATION nor the names of its
-//    contributors may be used to endorse or promote products derived
-//    from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
-// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-// PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-// EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-// OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-// Copyright (c) 2018 NVIDIA Corporation. All rights reserved.
-
+/*
+ * Copyright (c) 2008-2017, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+ */
 
 
 #include "Apex.h"
@@ -2470,10 +2452,10 @@ static void _arrayVec3ToVec4(const PxVec3* src, physx::aos::Vec4V* dst, PxU32 nu
 	const PxU32 num4 = num >> 2;
 	for (PxU32 i = 0; i < num4; i++, dst += 3, src += 4)
 	{
-		Vec4V v0 = Vec4V_From_Vec3V(V3LoadU(&src[0].x));
-		Vec4V v1 = Vec4V_From_Vec3V(V3LoadU(&src[1].x));
-		Vec4V v2 = Vec4V_From_Vec3V(V3LoadU(&src[2].x));
-		Vec4V v3 = Vec4V_From_Vec3V(V3LoadU(&src[3].x));
+		Vec3V v0 = V3LoadU(&src[0].x);
+		Vec3V v1 = V3LoadU(&src[1].x);
+		Vec3V v2 = V3LoadU(&src[2].x);
+		Vec3V v3 = V3LoadU(&src[3].x);
 		// Transpose
 		V4Transpose(v0, v1, v2, v3);
 		// Save 
@@ -2484,9 +2466,9 @@ static void _arrayVec3ToVec4(const PxVec3* src, physx::aos::Vec4V* dst, PxU32 nu
 	const PxU32 remain = num & 3;
 	if (remain)
 	{
-		Vec4V work[4];
+		Vec3V work[4];
 		PxU32 i = 0;
-		for (; i < remain; i++) work[i] = Vec4V_From_Vec3V(V3LoadU(&src[i].x));
+		for (; i < remain; i++) work[i] = V3LoadU(&src[i].x);
 		for (; i < 4; i++) work[i] = work[remain - 1];
 		V4Transpose(work[0], work[1], work[2], work[3]);
 		dst[0] = work[0];
@@ -2508,10 +2490,10 @@ static void _arrayVec3ToVec4(const PxVec3* src, const physx::aos::Vec3V& scale, 
 	const PxU32 num4 = num >> 2;
 	for (PxU32 i = 0; i < num4; i++, dst += 3, src += 4)
 	{
-		Vec4V v0 = Vec4V_From_Vec3V(V3Mul(scale, V3LoadU(&src[0].x)));
-		Vec4V v1 = Vec4V_From_Vec3V(V3Mul(scale, V3LoadU(&src[1].x)));
-		Vec4V v2 = Vec4V_From_Vec3V(V3Mul(scale, V3LoadU(&src[2].x)));
-		Vec4V v3 = Vec4V_From_Vec3V(V3Mul(scale, V3LoadU(&src[3].x)));
+		Vec3V v0 = V3Mul(scale, V3LoadU(&src[0].x));
+		Vec3V v1 = V3Mul(scale, V3LoadU(&src[1].x));
+		Vec3V v2 = V3Mul(scale, V3LoadU(&src[2].x));
+		Vec3V v3 = V3Mul(scale, V3LoadU(&src[3].x));
 		// Transpose
 		V4Transpose(v0, v1, v2, v3);
 		// Save 
@@ -2522,9 +2504,9 @@ static void _arrayVec3ToVec4(const PxVec3* src, const physx::aos::Vec3V& scale, 
 	const PxU32 remain = num & 3;
 	if (remain)
 	{
-		Vec4V work[4];
+		Vec3V work[4];
 		PxU32 i = 0;
-		for (; i < remain; i++) work[i] = Vec4V_From_Vec3V(V3Mul(scale, V3LoadU(&src[i].x)));
+		for (; i < remain; i++) work[i] = V3Mul(scale, V3LoadU(&src[i].x));
 		for (; i < 4; i++) work[i] = work[remain - 1];
 		V4Transpose(work[0], work[1], work[2], work[3]);
 		dst[0] = work[0];

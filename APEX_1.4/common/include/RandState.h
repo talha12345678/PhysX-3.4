@@ -1,30 +1,12 @@
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions
-// are met:
-//  * Redistributions of source code must retain the above copyright
-//    notice, this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above copyright
-//    notice, this list of conditions and the following disclaimer in the
-//    documentation and/or other materials provided with the distribution.
-//  * Neither the name of NVIDIA CORPORATION nor the names of its
-//    contributors may be used to endorse or promote products derived
-//    from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
-// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-// PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-// EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-// OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-// Copyright (c) 2018 NVIDIA Corporation. All rights reserved.
-
+/*
+ * Copyright (c) 2008-2017, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+ */
 
 
 #ifndef RAND_STATE_H
@@ -121,22 +103,13 @@ struct PRNGInfo
 // For CUDA PRNG: device part
 #ifdef __CUDACC__
 //*
-#if __CUDA_ARCH__ >= 300
-#define RAND_SCAN_OP(ofs) \
-	{ \
-		unsigned int a = aData[scanIdx], c = cData[scanIdx]; \
-		unsigned int aOfs = __shfl_up(a, ofs), cOfs = __shfl_up(c, ofs); \
-		if (idxInWarp >= ofs) { a = a * aOfs; c = c * aOfs + cOfs; } \
-		aData[scanIdx] = a; cData[scanIdx] = c; \
-	}
-#else
 #define RAND_SCAN_OP(ofs) \
 	{ \
 		unsigned int a = aData[scanIdx], c = cData[scanIdx]; \
 		unsigned int aOfs = aData[scanIdx - ofs], cOfs = cData[scanIdx - ofs]; \
-		aData[scanIdx] = a * aOfs; cData[scanIdx] = c * aOfs + cOfs; \
+		aData[scanIdx] = a * aOfs; \
+		cData[scanIdx] = c * aOfs + cOfs; \
 	}
-#endif
 /*/
 //THIS CODE CRASH ON CUDA 5.0.35
 #define RAND_SCAN_OP(ofs) \
@@ -147,7 +120,7 @@ struct PRNGInfo
 		aData[scanIdx] = val.a; cData[scanIdx] = val.c; \
 	}
 //*/
-PX_INLINE __device__ void randScanWarp(unsigned int scanIdx, volatile unsigned int* aData, volatile unsigned int* cData, unsigned int idxInWarp)
+PX_INLINE __device__ void randScanWarp(unsigned int scanIdx, volatile unsigned int* aData, volatile unsigned int* cData)
 {
 	RAND_SCAN_OP(1);
 	RAND_SCAN_OP(2);
@@ -173,7 +146,7 @@ PX_INLINE __device__ nvidia::LCG_PRNG randScanBlock(nvidia::LCG_PRNG val, volati
 	aData[scanIdx] = val.a;
 	cData[scanIdx] = val.c;
 
-	randScanWarp(scanIdx, aData, cData, idxInWarp);
+	randScanWarp(scanIdx, aData, cData);
 
 	//read value
 	val.a = aData[scanIdx]; 
@@ -191,7 +164,7 @@ PX_INLINE __device__ nvidia::LCG_PRNG randScanBlock(nvidia::LCG_PRNG val, volati
 
 	if (warpIdx == 0)
 	{
-		randScanWarp(scanIdx, aData, cData, idxInWarp);
+		randScanWarp(scanIdx, aData, cData);
 	}
 	__syncthreads();
 

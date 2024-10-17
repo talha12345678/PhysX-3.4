@@ -1,30 +1,12 @@
-//
-// Redistribution and use in source and binary forms, with or without
-// modification, are permitted provided that the following conditions
-// are met:
-//  * Redistributions of source code must retain the above copyright
-//    notice, this list of conditions and the following disclaimer.
-//  * Redistributions in binary form must reproduce the above copyright
-//    notice, this list of conditions and the following disclaimer in the
-//    documentation and/or other materials provided with the distribution.
-//  * Neither the name of NVIDIA CORPORATION nor the names of its
-//    contributors may be used to endorse or promote products derived
-//    from this software without specific prior written permission.
-//
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS ``AS IS'' AND ANY
-// EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
-// PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
-// CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
-// EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-// PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-// PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-// OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-// Copyright (c) 2018 NVIDIA Corporation. All rights reserved.
-
+/*
+ * Copyright (c) 2008-2017, NVIDIA CORPORATION.  All rights reserved.
+ *
+ * NVIDIA CORPORATION and its licensors retain all intellectual property
+ * and proprietary rights in and to this software, related documentation
+ * and any modifications thereto.  Any use, reproduction, disclosure or
+ * distribution of this software and related documentation without an express
+ * license agreement from NVIDIA CORPORATION is strictly prohibited.
+ */
 
 
 #ifndef __APEX_CUDA_WRAPPER_H__
@@ -74,29 +56,25 @@ struct ApexKernelConfig
 	uint32_t fixedSharedMemDWords;
 	uint32_t sharedMemDWordsPerWarp;
 	DimBlock blockDim;
+	uint32_t minWarpsPerBlock;
 	uint32_t maxGridSize;
-	uint32_t maxGridSizeMul;
-	uint32_t maxGridSizeDiv;
 
-	ApexKernelConfig() { fixedSharedMemDWords = sharedMemDWordsPerWarp = 0; blockDim = DimBlock(0, 0, 0); maxGridSize = maxGridSizeMul = 0; maxGridSizeDiv = 1; }
-	ApexKernelConfig(uint32_t fixedSharedMemDWords, uint32_t sharedMemDWordsPerWarp, int fixedWarpsPerBlock = 0, uint32_t maxGridSize = 0, uint32_t maxGridSizeMul = 0, uint32_t maxGridSizeDiv = 1)
+	ApexKernelConfig() { fixedSharedMemDWords = sharedMemDWordsPerWarp = 0; blockDim = DimBlock(0, 0, 0); minWarpsPerBlock = 1; maxGridSize = MAX_BOUND_BLOCKS; }
+	ApexKernelConfig(uint32_t fixedSharedMemDWords, uint32_t sharedMemDWordsPerWarp, int fixedWarpsPerBlock = 0, uint32_t minWarpsPerBlock = 1, uint32_t maxGridSize = MAX_BOUND_BLOCKS)
 	{
 		this->fixedSharedMemDWords = fixedSharedMemDWords;
 		this->sharedMemDWordsPerWarp = sharedMemDWordsPerWarp;
 		this->blockDim = DimBlock(fixedWarpsPerBlock * WARP_SIZE);
+		this->minWarpsPerBlock = minWarpsPerBlock;
 		this->maxGridSize = maxGridSize;
-		this->maxGridSizeMul = maxGridSizeMul;
-		this->maxGridSizeDiv = maxGridSizeDiv;
-		//final maxGridSize = min(SMcount, maxGridSize [if (maxGridSize != 0)], maxBlockSize * maxGridSizeMul / maxGridSizeDiv [if (maxGridSizeMul != 0)])
 	}
 	ApexKernelConfig(uint32_t fixedSharedMemDWords, uint32_t sharedMemDWordsPerWarp, const DimBlock& blockDim)
 	{
 		this->fixedSharedMemDWords = fixedSharedMemDWords;
 		this->sharedMemDWordsPerWarp = sharedMemDWordsPerWarp;
 		this->blockDim = blockDim;
-		this->maxGridSize = 0;
-		this->maxGridSizeMul = 0;
-		this->maxGridSizeDiv = 1;
+		this->minWarpsPerBlock = 1;
+		this->maxGridSize = MAX_BOUND_BLOCKS;
 	}
 };
 
